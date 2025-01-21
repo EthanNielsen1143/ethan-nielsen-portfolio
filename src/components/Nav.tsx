@@ -36,6 +36,7 @@ const Nav = () => {
             position: "absolute",
             width: "4em",
             height: "4em",
+            marginTop: "2em",
             objectFit: "cover",
             zIndex: 0,
           }}
@@ -60,12 +61,15 @@ const Nav = () => {
         >
           <ReactRouterLink to="/experience">Experience</ReactRouterLink>
         </Link>
+        {/* attempting to check collision with box instead*/}
+        {/* of a direct video*/}
         <Box
           zIndex={0}
           id="nav-portal-experience"
           position="absolute"
           width="100px"
           height="100px"
+          mt="3em"
         >
           <video
             // id="nav-portal-experience"
@@ -76,7 +80,6 @@ const Nav = () => {
               borderRadius: "100px",
               objectFit: "cover",
               zIndex: 0,
-              marginTop: ".3em",
             }}
           >
             <source src="../public/videos/portal.mp4" type="video/mp4" />
@@ -103,6 +106,7 @@ const Nav = () => {
           style={{
             borderRadius: "50%",
             position: "absolute",
+            marginTop: "2em",
             width: "4em",
             height: "4em",
             objectFit: "cover",
