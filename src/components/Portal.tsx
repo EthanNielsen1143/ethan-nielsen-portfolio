@@ -1,4 +1,4 @@
-import { CollisionContext } from "@/context/collision-provider";
+import { CollisionContext } from "@/context/collision-provider.tsx";
 import { Box } from "@chakra-ui/react";
 import { useContext } from "react";
 
