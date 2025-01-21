@@ -1,5 +1,6 @@
-import { Flex, Link, Text, Box } from "@chakra-ui/react";
+import { Flex, Link, Box } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
+import Portal from "./Portal.tsx";
 
 const Nav = () => {
   return (
@@ -26,7 +27,7 @@ const Nav = () => {
         >
           <ReactRouterLink to="/">Home</ReactRouterLink>
         </Link>
-        <video
+        {/* <video
           id="nav-portal-home"
           autoPlay
           loop
@@ -43,7 +44,8 @@ const Nav = () => {
         >
           <source src="../public/videos/portal.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        <Portal src={"../public/videos/portal.mp4"} />
       </Flex>
       <Flex
         flexDir="column"
@@ -63,7 +65,7 @@ const Nav = () => {
         </Link>
         {/* attempting to check collision with box instead*/}
         {/* of a direct video*/}
-        <Box
+        {/* <Box
           zIndex={0}
           id="nav-portal-experience"
           position="absolute"
@@ -85,7 +87,8 @@ const Nav = () => {
             <source src="../public/videos/portal.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        </Box>
+        </Box> */}
+        <Portal src="../public/videos/portal.mp4" />
       </Flex>
       <Flex flexDir="column" alignItems="center" justifyContent="content">
         <Link
@@ -98,7 +101,7 @@ const Nav = () => {
         >
           <ReactRouterLink to="/testimonials">Testimonials</ReactRouterLink>
         </Link>
-        <video
+        {/* <video
           id="nav-portal-testimonials"
           autoPlay
           loop
@@ -115,7 +118,8 @@ const Nav = () => {
         >
           <source src="../public/videos/portal.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        <Portal src="../public/videos/portal.mp4" />
       </Flex>
     </Flex>
   );

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Experience from "./pages/Experience";
 import Testimonials from "./pages/Testimonials";
 import { system } from "./theme/theme";
+import CollisionProvider from "./context/collision-provider";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Provider system={system}>
-      <RouterProvider router={router} />
+      <CollisionProvider>
+        <RouterProvider router={router} />
+      </CollisionProvider>
     </Provider>
   );
 }

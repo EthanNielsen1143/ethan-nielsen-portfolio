@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import { Image } from "@chakra-ui/react";
+import { useState, useEffect, useContext } from "react";
+import { Box, Image } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
+import { CollisionContext } from "@/context/collision-provider.tsx";
 
 interface SpaceshipProps {
   setSummary?: (summary: string) => void;
@@ -12,6 +13,8 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   const [position, setPosition] = useState({ x: 955, y: 180 });
   const [keys, setKeys] = useState<{ [key: string]: boolean }>({});
   const [rotate, setRotation] = useState(0);
+
+  const { refCallback } = useContext(CollisionContext);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -177,19 +180,17 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   }, [position, setSummary, setPFP]);
 
   return (
-    <>
-      <Image
-        src="/images/shuttle.png"
-        alt="Spaceship"
-        position="absolute"
-        bottom={`${position.y}px`}
-        left={`${position.x}px`}
-        transform={`translate(-50%, -50%) rotate(${rotate}deg)`}
-        //transition="transform 0.15s ease-in-out"
-        boxSize="60px"
-        zIndex={1}
-      />
-    </>
+    <Box
+      ref={refCallback}
+      position="absolute"
+      bottom={`${position.y}px`}
+      left={`${position.x}px`}
+      transform={`translate(-50%, -50%) rotate(${rotate}deg)`}
+      //transition="transform 0.15s ease-in-out"
+      zIndex={1}
+    >
+      <Image src="/images/shuttle.png" alt="Spaceship" boxSize="60px" />
+    </Box>
   );
 };
 
