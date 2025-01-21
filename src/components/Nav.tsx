@@ -1,0 +1,120 @@
+import { Flex, Link, Text, Box } from "@chakra-ui/react";
+import { Link as ReactRouterLink } from "react-router-dom";
+
+const Nav = () => {
+  return (
+    <Flex
+      pt="50px"
+      gap="28em"
+      position="fixed"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      zIndex="1"
+      top="0"
+      left="0"
+    >
+      <Flex flexDir="column" alignItems="center">
+        <Link
+          outline="none"
+          asChild
+          color="white"
+          px="10px"
+          mb="1em"
+          zIndex={1}
+        >
+          <ReactRouterLink to="/">Home</ReactRouterLink>
+        </Link>
+        <video
+          id="nav-portal-home"
+          autoPlay
+          loop
+          muted
+          style={{
+            borderRadius: "100px",
+            position: "absolute",
+            width: "4em",
+            height: "4em",
+            objectFit: "cover",
+            zIndex: 0,
+          }}
+        >
+          <source src="../public/videos/portal.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </Flex>
+      <Flex
+        flexDir="column"
+        alignItems="center"
+        justifyContent="content"
+        // bgColor="space.500"
+      >
+        <Link
+          outline="none"
+          asChild
+          color="white"
+          px="10px"
+          fontSize="3xl"
+          zIndex={1}
+        >
+          <ReactRouterLink to="/experience">Experience</ReactRouterLink>
+        </Link>
+        <Box
+          zIndex={0}
+          id="nav-portal-experience"
+          position="absolute"
+          width="100px"
+          height="100px"
+        >
+          <video
+            // id="nav-portal-experience"
+            autoPlay
+            loop
+            muted
+            style={{
+              borderRadius: "100px",
+              objectFit: "cover",
+              zIndex: 0,
+              marginTop: ".3em",
+            }}
+          >
+            <source src="../public/videos/portal.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </Box>
+      </Flex>
+      <Flex flexDir="column" alignItems="center" justifyContent="content">
+        <Link
+          outline="none"
+          asChild
+          color="white"
+          px="10px"
+          mb="1em"
+          zIndex={1}
+        >
+          <ReactRouterLink to="/testimonials">Testimonials</ReactRouterLink>
+        </Link>
+        <video
+          id="nav-portal-testimonials"
+          autoPlay
+          loop
+          muted
+          style={{
+            borderRadius: "50%",
+            position: "absolute",
+            width: "4em",
+            height: "4em",
+            objectFit: "cover",
+            zIndex: 0,
+          }}
+        >
+          <source src="../public/videos/portal.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </Flex>
+    </Flex>
+  );
+};
+
+export default Nav;
