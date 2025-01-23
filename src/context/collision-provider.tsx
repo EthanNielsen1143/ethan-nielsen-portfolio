@@ -9,21 +9,21 @@ import {
 
 export const CollisionContext = createContext<{
   refCallback: LegacyRef<HTMLDivElement>;
-}>({
-  // @ts-expect-error this is a placeholder function.
-  // eslint-disable-next-line
-  refCallback: (node: HTMLDivElement) => {},
-});
+  checkCollisions: (spaceshipRect: DOMRect) => void;
+}>(null!);
 
 const CollisionProvider = ({ children }: { children: ReactNode }) => {
   const collidableElements = useRef<HTMLDivElement[]>([]);
 
   const refCallback = useCallback((node: HTMLDivElement) => {
     collidableElements.current.push(node);
+    console.log(collidableElements);
   }, []);
 
+  const checkCollisions = useCallback((spaceshipRect: DOMRect) => {});
+
   return (
-    <CollisionContext.Provider value={{ refCallback }}>
+    <CollisionContext.Provider value={{ refCallback, checkCollisions }}>
       {children}
     </CollisionContext.Provider>
   );

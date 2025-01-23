@@ -1,6 +1,7 @@
 import { Flex, Link, Box } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import Portal from "./Portal.tsx";
+import PortalExp from "./PortalExp.tsx";
 
 const Nav = () => {
   return (
@@ -27,24 +28,6 @@ const Nav = () => {
         >
           <ReactRouterLink to="/">Home</ReactRouterLink>
         </Link>
-        {/* <video
-          id="nav-portal-home"
-          autoPlay
-          loop
-          muted
-          style={{
-            borderRadius: "100px",
-            position: "absolute",
-            width: "4em",
-            height: "4em",
-            marginTop: "2em",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        >
-          <source src="../public/videos/portal.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video> */}
         <Portal src={"../public/videos/portal.mp4"} />
       </Flex>
       <Flex
@@ -65,30 +48,7 @@ const Nav = () => {
         </Link>
         {/* attempting to check collision with box instead*/}
         {/* of a direct video*/}
-        {/* <Box
-          zIndex={0}
-          id="nav-portal-experience"
-          position="absolute"
-          width="100px"
-          height="100px"
-          mt="3em"
-        >
-          <video
-            // id="nav-portal-experience"
-            autoPlay
-            loop
-            muted
-            style={{
-              borderRadius: "100px",
-              objectFit: "cover",
-              zIndex: 0,
-            }}
-          >
-            <source src="../public/videos/portal.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </Box> */}
-        <Portal src="../public/videos/portal.mp4" />
+        <PortalExp src="../public/videos/portal.mp4" />
       </Flex>
       <Flex flexDir="column" alignItems="center" justifyContent="content">
         <Link

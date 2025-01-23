@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Experience from "./pages/Experience";
 import Testimonials from "./pages/Testimonials";
 import { system } from "./theme/theme";
-import CollisionProvider from "./context/collision-provider";
+import CollisionProvider from "./context/collision-provider.tsx";
 
 const router = createBrowserRouter([
   {
