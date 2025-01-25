@@ -9,7 +9,7 @@ import {
 
 export const CollisionContext = createContext<{
   refCallback: LegacyRef<HTMLDivElement>;
-  checkCollisions: (spaceshipRect: DOMRect) => void;
+  spaceShipMovedCallback: any;
 }>(null!);
 
 const CollisionProvider = ({ children }: { children: ReactNode }) => {
@@ -20,10 +20,12 @@ const CollisionProvider = ({ children }: { children: ReactNode }) => {
     console.log(collidableElements);
   }, []);
 
-  const checkCollisions = useCallback((spaceshipRect: DOMRect) => {});
+  const spaceShipMovedCallback = () => {
+    // console.log("Space ship freaking moved");
+  };
 
   return (
-    <CollisionContext.Provider value={{ refCallback, checkCollisions }}>
+    <CollisionContext.Provider value={{ refCallback, spaceShipMovedCallback }}>
       {children}
     </CollisionContext.Provider>
   );

@@ -14,7 +14,7 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   const [keys, setKeys] = useState<{ [key: string]: boolean }>({});
   const [rotate, setRotation] = useState(0);
 
-  const { refCallback } = useContext(CollisionContext);
+  const { refCallback, spaceShipMovedCallback } = useContext(CollisionContext);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -95,6 +95,10 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
       window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
+
+  useEffect(() => {
+    spaceShipMovedCallback;
+  }, [position]);
 
   // useEffect(() => {
   //   const checkCollision = () => {
