@@ -9,6 +9,10 @@ interface PortalProps {
 const Portal = ({ src }: PortalProps) => {
   const { refCallback } = useContext(CollisionContext);
 
+  const collisionCallback = () = {
+    
+  }
+
   return (
     <Box
       ref={refCallback}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Box, Image } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import { CollisionContext } from "@/context/collision-provider.tsx";
@@ -11,8 +11,9 @@ interface SpaceshipProps {
 const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   const location = useLocation();
   const [position, setPosition] = useState({ x: 955, y: 180 });
-  const [keys, setKeys] = useState<{ [key: string]: boolean }>({});
-  const [rotate, setRotation] = useState(0);
+  // const [keys, setKeys] = useState<{ [key: string]: boolean }>({});
+  const keys = useRef<{ [key: string]: boolean }>({});
+  const [rotation, setRotation] = useState(0);
 
   const { refCallback, spaceShipMovedCallback } = useContext(CollisionContext);
 
@@ -34,32 +35,32 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
         let newX = prev.x;
         let newY = prev.y;
 
-        if (keys.ArrowUp && keys.ArrowRight) {
+        if (keys.current.ArrowUp && keys.current.ArrowRight) {
           newY += 2;
           newX += 2;
           setRotation(45);
-        } else if (keys.ArrowUp && keys.ArrowLeft) {
+        } else if (keys.current.ArrowUp && keys.current.ArrowLeft) {
           newY += 2;
           newX -= 2;
           setRotation(-45);
-        } else if (keys.ArrowDown && keys.ArrowRight) {
+        } else if (keys.current.ArrowDown && keys.current.ArrowRight) {
           newY -= 2;
           newX += 2;
           setRotation(135);
-        } else if (keys.ArrowDown && keys.ArrowLeft) {
+        } else if (keys.current.ArrowDown && keys.current.ArrowLeft) {
           newY -= 2;
           newX -= 2;
           setRotation(225);
-        } else if (keys.ArrowUp) {
+        } else if (keys.current.ArrowUp) {
           newY += 2;
           setRotation(0);
-        } else if (keys.ArrowDown) {
+        } else if (keys.current.ArrowDown) {
           newY -= 2;
           setRotation(180);
-        } else if (keys.ArrowLeft) {
+        } else if (keys.current.ArrowLeft) {
           newX -= 2;
           setRotation(270);
-        } else if (keys.ArrowRight) {
+        } else if (keys.current.ArrowRight) {
           newX += 2;
           setRotation(90);
         }
@@ -67,7 +68,11 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
         newX = Math.max(35, Math.min(newX, window.innerWidth - 95));
         newY = Math.max(-25, Math.min(newY, window.innerHeight - 95));
 
-        return { x: newX, y: newY };
+        if (newX !== prev.x || newY !== prev.y) {
+          return { x: newX, y: newY };
+        }
+
+        return prev;
       });
 
       animationFrameId = requestAnimationFrame(move);
@@ -76,15 +81,15 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
     move();
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, [keys]);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      setKeys((prev) => ({ ...prev, [event.key]: true }));
+      keys.current[event.key] = true;
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
-      setKeys((prev) => ({ ...prev, [event.key]: false }));
+      keys.current[event.key] = false;
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -97,8 +102,8 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   }, []);
 
   useEffect(() => {
-    spaceShipMovedCallback;
-  }, [position]);
+    spaceShipMovedCallback();
+  }, [position, spaceShipMovedCallback]);
 
   // useEffect(() => {
   //   const checkCollision = () => {
@@ -183,11 +188,12 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
 
   return (
     <Box
+      id="spaceShip"
       ref={refCallback}
       position="absolute"
       bottom={`${position.y}px`}
       left={`${position.x}px`}
-      transform={`translate(-50%, -50%) rotate(${rotate}deg)`}
+      transform={`translate(-50%, -50%) rotate(${rotation}deg)`}
       //transition="transform 0.15s ease-in-out"
       zIndex={1}
     >

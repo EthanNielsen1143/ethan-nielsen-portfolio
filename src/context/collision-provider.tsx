@@ -13,15 +13,43 @@ export const CollisionContext = createContext<{
 }>(null!);
 
 const CollisionProvider = ({ children }: { children: ReactNode }) => {
-  const collidableElements = useRef<HTMLDivElement[]>([]);
+  const collidableElements = useRef<
+    {
+      element: HTMLDivElement;
+      collisionCallback: () => void;
+    }[]
+  >([]);
 
   const refCallback = useCallback((node: HTMLDivElement) => {
     collidableElements.current.push(node);
-    console.log(collidableElements);
   }, []);
 
   const spaceShipMovedCallback = () => {
-    // console.log("Space ship freaking moved");
+    const spaceShip = collidableElements.current.find((element) => {
+      return element.id == "spaceShip";
+    });
+
+    if (!spaceShip) return;
+    const spaceShipIndex = collidableElements.current.indexOf(spaceShip);
+    const collidables = [...collidableElements.current];
+    collidables.splice(spaceShipIndex, 1);
+
+    for (let i = 0; i < collidables.length; i++) {
+      const spaceshipRect = spaceShip.getBoundingClientRect();
+      const collidableRect = collidables[i].getBoundingClientRect();
+
+      // console.log(spaceshipRect, collidableRect);
+
+      const isColliding =
+        spaceshipRect.left < collidableRect.right &&
+        spaceshipRect.right > collidableRect.left &&
+        spaceshipRect.top < collidableRect.bottom &&
+        spaceshipRect.bottom > collidableRect.top;
+
+      if (isColliding) {
+        console.log("we collilding");
+      }
+    }
   };
 
   return (
