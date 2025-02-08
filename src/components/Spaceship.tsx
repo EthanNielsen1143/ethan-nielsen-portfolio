@@ -8,14 +8,19 @@ interface SpaceshipProps {
   setPFP?: (pfp: string) => void;
 }
 
+//WHAT TO DO - OLD PROPS
 const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   const location = useLocation();
   const [position, setPosition] = useState({ x: 955, y: 180 });
   // const [keys, setKeys] = useState<{ [key: string]: boolean }>({});
   const keys = useRef<{ [key: string]: boolean }>({});
   const [rotation, setRotation] = useState(0);
+  const spaceshipRef = useRef<HTMLDivElement | null>(null);
 
-  const { refCallback, spaceShipMovedCallback } = useContext(CollisionContext);
+  // console.log(spaceshipRef);
+
+  const { collidableElementsCallback, spaceShipMovedCallback } =
+    useContext(CollisionContext);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -26,6 +31,13 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
       setPosition({ x: 200, y: 400 });
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    collidableElementsCallback({
+      element: spaceshipRef.current,
+      collisionCallback: () => undefined,
+    });
+  }, []);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -189,7 +201,7 @@ const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
   return (
     <Box
       id="spaceShip"
-      ref={refCallback}
+      ref={spaceshipRef}
       position="absolute"
       bottom={`${position.y}px`}
       left={`${position.x}px`}

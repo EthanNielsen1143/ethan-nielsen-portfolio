@@ -1,17 +1,25 @@
 import { CollisionContext } from "@/context/collision-provider.tsx";
 import { Box } from "@chakra-ui/react";
-import { useContext } from "react";
+import { useContext, useRef, useEffect } from "react";
 
 interface PortalProps {
   src: string;
 }
 
 const PortalExp = ({ src }: PortalProps) => {
-  const { refCallback } = useContext(CollisionContext);
+  const portalExpRef = useRef<HTMLDivElement | null>(null);
+  const { collidableElementsCallback } = useContext(CollisionContext);
+
+  useEffect(() => {
+    collidableElementsCallback({
+      element: portalExpRef.current,
+      collisionCallback: () => console.log("Experience Portal Collided"),
+    });
+  }, []);
 
   return (
     <Box
-      ref={refCallback}
+      ref={portalExpRef}
       position="absolute"
       width="6em"
       height="6em"

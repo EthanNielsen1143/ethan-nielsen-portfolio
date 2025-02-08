@@ -1,10 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Box, BoxProps, Image } from "@chakra-ui/react";
 import { CollisionContext } from "@/context/collision-provider.tsx";
 
 const DockingStation1 = (props: BoxProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const { refCallback } = useContext(CollisionContext);
+  const { collidableElementsCallback } = useContext(CollisionContext);
+  const dockingStationRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    collidableElementsCallback({
+      element: dockingStationRef.current,
+      collisionCallback: () => console.log("Docking Station Collided"),
+    });
+  }, []);
 
   useEffect(() => {
     const parent = document.getElementById("spaceship-start");
@@ -19,7 +27,7 @@ const DockingStation1 = (props: BoxProps) => {
 
   return (
     <Box
-      ref={refCallback}
+      ref={dockingStationRef}
       position="absolute"
       // top="50%"
       // left="110%"
