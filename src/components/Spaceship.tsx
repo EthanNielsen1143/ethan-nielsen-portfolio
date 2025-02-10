@@ -3,13 +3,7 @@ import { Box, Image } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import { CollisionContext } from "@/context/collision-provider.tsx";
 
-interface SpaceshipProps {
-  setSummary?: (summary: string) => void;
-  setPFP?: (pfp: string) => void;
-}
-
-//WHAT TO DO - OLD PROPS
-const Spaceship = ({ setSummary, setPFP }: SpaceshipProps) => {
+const Spaceship = () => {
   const location = useLocation();
   const [position, setPosition] = useState({ x: 955, y: 180 });
   // const [keys, setKeys] = useState<{ [key: string]: boolean }>({});

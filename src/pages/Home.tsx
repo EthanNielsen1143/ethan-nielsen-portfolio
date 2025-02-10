@@ -3,7 +3,7 @@ import { Heading, Text, Flex, Image } from "@chakra-ui/react";
 import { useState } from "react";
 import Spaceship from "../components/Spaceship";
 import { InfoTip } from "@/components/ui/toggle-tip";
-import DockingStation1 from "@/components/dockingStation1";
+import DockingStation from "@/components/dockingStation";
 
 function HomePage() {
   const [summary, setSummary] = useState("");
@@ -41,7 +41,9 @@ function HomePage() {
           <Heading as="h1" size="6xl">
             Ethan Nielsen
           </Heading>
-          <DockingStation1
+          <DockingStation
+            id="docking-station-1"
+            setSummary={setSummary}
             top="50%"
             left="110%"
             transform="translate(-50%, -50%)"
@@ -63,7 +65,7 @@ function HomePage() {
         id="spaceship-start"
         // position="relative"
       >
-        <Spaceship setSummary={setSummary} setPFP={setPFP} />
+        <Spaceship />
         <Text>
           Fly around and learn more about what I can bring to your team!
           <InfoTip
@@ -83,7 +85,9 @@ function HomePage() {
         position="relative"
         gap={5}
       >
-        <DockingStation1
+        <DockingStation
+          id="docking-station-2"
+          setPFP={setPFP}
           position="absolute"
           top="50%"
           left="-8%"

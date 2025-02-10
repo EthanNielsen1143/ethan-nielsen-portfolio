@@ -1,18 +1,12 @@
-import {
-  createContext,
-  LegacyRef,
-  ReactNode,
-  useCallback,
-  //   useEffect,
-  useRef,
-} from "react";
+import { createContext, ReactNode, useCallback, useRef } from "react";
 
 export const CollisionContext = createContext<{
   collidableElementsCallback: (elementObject: {
     element: HTMLDivElement | null;
     collisionCallback: () => void;
+    collisionEndCallback?: () => void;
   }) => void;
-  spaceShipMovedCallback: any;
+  spaceShipMovedCallback: () => void;
 }>(null!);
 
 const CollisionProvider = ({ children }: { children: ReactNode }) => {
@@ -20,6 +14,7 @@ const CollisionProvider = ({ children }: { children: ReactNode }) => {
     {
       element: HTMLDivElement | null;
       collisionCallback: () => void;
+      collisionEndCallback?: () => void;
     }[]
   >([]);
 
@@ -27,16 +22,16 @@ const CollisionProvider = ({ children }: { children: ReactNode }) => {
     (elementObject: {
       element: HTMLDivElement | null;
       collisionCallback: () => void;
+      collisionEndCallback?: () => void;
     }) => {
       if (!elementObject.element) return;
+
       const isAlreadyRegistered = collidableElements.current.some(
         (e) => e.element === elementObject.element
       );
 
       if (!isAlreadyRegistered) {
         collidableElements.current.push(elementObject);
-      } else {
-        console.warn("Element is already registered:", elementObject.element);
       }
     },
     []
@@ -71,16 +66,16 @@ const CollisionProvider = ({ children }: { children: ReactNode }) => {
       if (collidableElement) {
         if (isColliding) {
           if (!activeCollisions.has(collidableElement)) {
-            // First time colliding with this object
             console.log("Collision STARTED with:", collidableElement);
             activeCollisions.add(collidableElement);
-            collidables[i].collisionCallback(); // Run callback once
+            collidables[i].collisionCallback();
           }
         } else {
           if (activeCollisions.has(collidableElement)) {
-            // Object was colliding, but now it's not
             console.log("Collision ENDED with:", collidableElement);
             activeCollisions.delete(collidableElement);
+
+            collidables[i].collisionEndCallback?.();
           }
         }
       }
