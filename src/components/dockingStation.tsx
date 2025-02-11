@@ -21,7 +21,14 @@ const DockingStation = ({
     collidableElementsCallback({
       element: dockingStationRef.current,
       collisionCallback: () => {
-        console.log(`${id}`);
+        console.log(`Collision STARTED with: ${id}`);
+
+        if (dockingStationRef.current) {
+          const imageElement = dockingStationRef.current.querySelector("img");
+          if (imageElement) {
+            imageElement.src = `/images/ds1Red.png`;
+          }
+        }
 
         if (id === "docking-station-1" && setSummary) {
           setSummary(
@@ -38,12 +45,19 @@ const DockingStation = ({
         }
       },
       collisionEndCallback: () => {
-        console.log(`${id}`);
+        console.log(`Collision ENDED with: ${id}`);
 
-        // Reset only the affected state
+        if (dockingStationRef.current) {
+          const imageElement = dockingStationRef.current.querySelector("img");
+          if (imageElement) {
+            imageElement.src = `/images/ds1Green.png`;
+          }
+        }
+
         if (id === "docking-station-1" && setSummary) {
           setSummary("");
         }
+
         if (id === "docking-station-2" && setPFP) {
           setPFP("");
         }
