@@ -1,5 +1,6 @@
 import { CollisionContext } from "@/context/collision-provider.tsx";
 import { Box } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { useContext, useRef, useEffect } from "react";
 
 interface PortalProps {
@@ -9,13 +10,15 @@ interface PortalProps {
 const Portal = ({ src }: PortalProps) => {
   const { collidableElementsCallback } = useContext(CollisionContext);
   const portalRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     collidableElementsCallback({
       element: portalRef.current,
-      collisionCallback: () => console.log("Portal Collided"),
+      collisionCallback: () =>
+        console.log(navigate("/"), window.location.reload()),
     });
-  }, []);
+  }, [collidableElementsCallback, navigate]);
 
   return (
     <Box

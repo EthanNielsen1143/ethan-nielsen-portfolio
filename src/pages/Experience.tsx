@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, Text } from "@chakra-ui/react";
+import { Box, Heading, Flex } from "@chakra-ui/react";
 import Spaceship from "../components/Spaceship";
 
 const Experience = () => {

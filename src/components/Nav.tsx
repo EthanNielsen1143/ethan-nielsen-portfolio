@@ -1,4 +1,4 @@
-import { Flex, Link, Box } from "@chakra-ui/react";
+import { Flex, Link } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import Portal from "./Portal.tsx";
 import PortalExp from "./PortalExp.tsx";
