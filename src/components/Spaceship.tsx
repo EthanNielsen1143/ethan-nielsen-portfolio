@@ -11,8 +11,6 @@ const Spaceship = () => {
   const [rotation, setRotation] = useState(0);
   const spaceshipRef = useRef<HTMLDivElement | null>(null);
 
-  // console.log(spaceshipRef);
-
   const { collidableElementsCallback, spaceShipMovedCallback } =
     useContext(CollisionContext);
 

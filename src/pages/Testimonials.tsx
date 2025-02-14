@@ -1,8 +1,13 @@
 import { Box, Heading, Text, Flex, Image } from "@chakra-ui/react";
-// import Spaceship from "../components/Spaceship";
+import Spaceship from "../components/Spaceship";
 
 function Testimonials() {
-  return <Text>Hello</Text>;
+  return (
+    <Box>
+      <Text>Hello</Text>
+      <Spaceship />
+    </Box>
+  );
 }
 
 export default Testimonials;

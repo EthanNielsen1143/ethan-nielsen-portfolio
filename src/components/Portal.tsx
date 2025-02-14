@@ -5,9 +5,10 @@ import { useContext, useRef, useEffect } from "react";
 
 interface PortalProps {
   src: string;
+  id: string;
 }
 
-const Portal = ({ src }: PortalProps) => {
+const Portal = ({ src, id }: PortalProps) => {
   const { collidableElementsCallback } = useContext(CollisionContext);
   const portalRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -15,10 +16,22 @@ const Portal = ({ src }: PortalProps) => {
   useEffect(() => {
     collidableElementsCallback({
       element: portalRef.current,
-      collisionCallback: () =>
-        console.log(navigate("/"), window.location.reload()),
+      collisionCallback: () => {
+        if (portalRef.current?.querySelector(`#${id}`)) {
+          if (id === "nav-portal-home") {
+            navigate("/");
+            window.location.reload();
+            console.log("home portal detected");
+          }
+          if (id === "nav-portal-testimonials") {
+            navigate("/testimonials");
+            window.location.reload();
+            console.log("testi portal detected");
+          }
+        }
+      },
     });
-  }, [collidableElementsCallback, navigate]);
+  }, [collidableElementsCallback, navigate, id]);
 
   return (
     <Box
@@ -31,7 +44,7 @@ const Portal = ({ src }: PortalProps) => {
       zIndex={0}
     >
       <video
-        id="nav-portal-home"
+        id={id}
         autoPlay
         loop
         muted

@@ -31,7 +31,7 @@ const PortalExp = ({ src }: PortalProps) => {
       zIndex={0}
     >
       <video
-        id="nav-portal-home"
+        id="nav-portal-experience"
         autoPlay
         loop
         muted

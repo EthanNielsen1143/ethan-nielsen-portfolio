@@ -28,7 +28,7 @@ const Nav = () => {
         >
           <ReactRouterLink to="/">Home</ReactRouterLink>
         </Link>
-        <Portal src={"../public/videos/portal.mp4"} />
+        <Portal id={"nav-portal-home"} src={"../public/videos/portal.mp4"} />
       </Flex>
       <Flex
         flexDir="column"
@@ -79,7 +79,10 @@ const Nav = () => {
           <source src="../public/videos/portal.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video> */}
-        <Portal src="../public/videos/portal.mp4" />
+        <Portal
+          id={"nav-portal-testimonials"}
+          src="../public/videos/portal.mp4"
+        />
       </Flex>
     </Flex>
   );
