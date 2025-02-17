@@ -3,7 +3,14 @@ import Spaceship from "../components/Spaceship";
 
 const Experience = () => {
   return (
-    <Box className="Experience" height="100vh">
+    <Box
+      className="Experience"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="row"
+      height="100vh"
+    >
       <Heading color="sea.300" as="h1" size="2xl">
         Experience
       </Heading>

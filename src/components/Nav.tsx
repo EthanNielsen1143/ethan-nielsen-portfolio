@@ -51,34 +51,9 @@ const Nav = () => {
         <PortalExp src="../public/videos/portal.mp4" />
       </Flex>
       <Flex flexDir="column" alignItems="center" justifyContent="content">
-        <Link
-          outline="none"
-          asChild
-          color="white"
-          px="10px"
-          mb="1em"
-          zIndex={1}
-        >
+        <Link outline="none" asChild color="white" mb="1em" zIndex={1}>
           <ReactRouterLink to="/testimonials">Testimonials</ReactRouterLink>
         </Link>
-        {/* <video
-          id="nav-portal-testimonials"
-          autoPlay
-          loop
-          muted
-          style={{
-            borderRadius: "50%",
-            position: "absolute",
-            marginTop: "2em",
-            width: "4em",
-            height: "4em",
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-        >
-          <source src="../public/videos/portal.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video> */}
         <Portal
           id={"nav-portal-testimonials"}
           src="../public/videos/portal.mp4"
