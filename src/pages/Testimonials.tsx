@@ -45,7 +45,7 @@ function Testimonials() {
           />
         </Flex>
       ))}
-      <Text position="absolute" top="400px" mx="auto" fontSize="3em">
+      <Text position="absolute" top="400px" mx="auto" fontSize="2em">
         {testTitle}
       </Text>
       <Spaceship />

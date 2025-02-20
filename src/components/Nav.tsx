@@ -1,5 +1,4 @@
 import { Flex, Link } from "@chakra-ui/react";
-import { Link as ReactRouterLink } from "react-router-dom";
 import Portal from "./Portal.tsx";
 import PortalExp from "./PortalExp.tsx";
 
@@ -19,40 +18,42 @@ const Nav = () => {
     >
       <Flex flexDir="column" alignItems="center">
         <Link
+          as="a" // Change from "asChild" to "as='a'"
+          href="/" // Use href instead of ReactRouterLink
           outline="none"
-          asChild
           color="white"
           px="10px"
           mb="1em"
           zIndex={1}
         >
-          <ReactRouterLink to="/">Home</ReactRouterLink>
+          Home
         </Link>
         <Portal id={"nav-portal-home"} src={"../public/videos/portal.mp4"} />
       </Flex>
-      <Flex
-        flexDir="column"
-        alignItems="center"
-        justifyContent="content"
-        // bgColor="space.500"
-      >
+      <Flex flexDir="column" alignItems="center" justifyContent="content">
         <Link
+          as="a"
+          href="/experience"
           outline="none"
-          asChild
           color="white"
           px="10px"
           fontSize="3xl"
           zIndex={1}
         >
-          <ReactRouterLink to="/experience">Experience</ReactRouterLink>
+          Experience
         </Link>
-        {/* attempting to check collision with box instead*/}
-        {/* of a direct video*/}
         <PortalExp src="../public/videos/portal.mp4" />
       </Flex>
       <Flex flexDir="column" alignItems="center" justifyContent="content">
-        <Link outline="none" asChild color="white" mb="1em" zIndex={1}>
-          <ReactRouterLink to="/testimonials">Testimonials</ReactRouterLink>
+        <Link
+          as="a"
+          href="/testimonials"
+          outline="none"
+          color="white"
+          mb="1em"
+          zIndex={1}
+        >
+          Testimonials
         </Link>
         <Portal
           id={"nav-portal-testimonials"}
