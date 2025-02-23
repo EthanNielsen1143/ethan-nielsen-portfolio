@@ -1,5 +1,6 @@
 import { Box, Heading, Flex } from "@chakra-ui/react";
 import Spaceship from "../components/Spaceship";
+import DockingStation from "@/components/dockingStation";
 
 const Experience = () => {
   return (
@@ -11,9 +12,7 @@ const Experience = () => {
       flexDirection="row"
       height="100vh"
     >
-      <Heading color="sea.300" as="h1" size="2xl">
-        Experience
-      </Heading>
+      <DockingStation id="docking-station-7" />
       <Spaceship />
       <Flex justifyContent="center" textAlign="center"></Flex>
     </Box>

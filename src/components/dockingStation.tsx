@@ -35,7 +35,7 @@ const DockingStation = ({
         if (id === "docking-station-1" && setSummary) {
           setSummary(
             `Welcome to my portfolio website! I am a full stack developer with a
-             passion for creating web applications. I am currently a Junior at Brigham Young University Idaho studying
+             passion for creating web applications. I am currently a Senior at Brigham Young University Idaho studying
              Software Engineering. I have experience with React, ChakraUI, Typescript,
              Express, MongoDB, and more, with a knack for creativity. I am always looking for new opportunities
              to learn and grow as a developer while also bringing valuable work and experience to your team.`

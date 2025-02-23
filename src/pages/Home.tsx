@@ -4,6 +4,8 @@ import { useState } from "react";
 import Spaceship from "../components/Spaceship";
 import { InfoTip } from "@/components/ui/toggle-tip";
 import DockingStation from "@/components/dockingStation";
+// import Invader from "@/components/Invaders";
+import TypewriterText from "@/components/TypeWriterText";
 
 function HomePage() {
   const [summary, setSummary] = useState("");
@@ -51,9 +53,7 @@ function HomePage() {
         </Flex>
         <Text fontSize="xl">Full Stack Developer</Text>
         {summary && (
-          <Text fontSize="m" mt={5}>
-            {summary}
-          </Text>
+          <TypewriterText fontSize="m" mt={5} text={summary} speed={20} />
         )}
       </Flex>
       <Flex
@@ -66,13 +66,15 @@ function HomePage() {
         // position="relative"
       >
         <Spaceship />
-        <Text>
-          Fly around and learn more about what I can bring to your team!
-          <InfoTip
-            size="lg"
-            content="you can also click or hover anywhere you want"
-          />
-        </Text>
+        <TypewriterText
+          fontSize="s"
+          text="Fly around and learn more about what I can bring to your team!"
+          speed={50}
+        />
+        <InfoTip
+          size="lg"
+          content="you can also click or hover anywhere you want"
+        />
       </Flex>
       <Flex
         flex="1"

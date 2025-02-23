@@ -1,16 +1,28 @@
-import { Box, Text, Flex, Heading } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import { useState } from "react";
 import Spaceship from "../components/Spaceship";
-import DockingStation from "../components/dockingStation";
+import Invader from "@/components/Invaders";
+import TypewriterText from "@/components/TypeWriterText";
 
 function Testimonials() {
-  const [testimony, setTestimony] = useState("");
+  // Manage separate testimonies for each invader
+  const [testimonies, setTestimonies] = useState({
+    "invader-1": "",
+    "invader-2": "",
+    "invader-3": "",
+    "invader-4": "",
+  });
+
   const [testTitle, setTestimonialTitle] = useState(
     "Hear what others have to say about Ethan"
   );
 
-  const handleTestimonyChange = (newTestimony: string) => {
-    setTestimony(newTestimony);
+  // Handler for updating a specific testimony
+  const handleTestimonyChange = (id: string, newTestimony: string) => {
+    setTestimonies((prev) => ({
+      ...prev,
+      [id]: newTestimony,
+    }));
     setTestimonialTitle(
       newTestimony ? "" : "Hear what others have to say about Ethan"
     );
@@ -25,29 +37,123 @@ function Testimonials() {
       justifyContent="space-evenly"
       alignItems="flex-end"
     >
-      {[3, 4, 5, 6].map((id) => (
-        <Flex
-          key={id}
-          flexDir="column"
-          height="30em"
-          alignItems="center"
-          justifyContent="space-between"
-          width="25%"
-          mb="8em"
-        >
-          <Text fontSize="xl" textAlign="center" width="100%">
-            {testimony}
-          </Text>
-          <DockingStation
-            id={`docking-station-${id}`}
+      {/* INVADER 1 */}
+      <Flex
+        flexDir="column"
+        height="33em"
+        alignItems="center"
+        justifyContent="space-between"
+        width="24%"
+        mb="6em"
+      >
+        <TypewriterText
+          text={testimonies["invader-1"]}
+          fontSize="xl"
+          textAlign="center"
+          width="100%"
+        />
+        <Flex position="relative" flexDir="column" alignItems="center">
+          <Invader
+            id="invader-1"
             position="relative"
-            setTestimony={handleTestimonyChange}
+            setTestimony={(text) => handleTestimonyChange("invader-1", text)}
           />
+          <Text fontSize="25px" fontWeight="bold">
+            Full Name Here
+          </Text>
+          <Text>Relationship</Text>
         </Flex>
-      ))}
-      <Text position="absolute" top="400px" mx="auto" fontSize="2em">
+      </Flex>
+
+      {/* INVADER 2 */}
+      <Flex
+        flexDir="column"
+        height="33em"
+        alignItems="center"
+        justifyContent="space-between"
+        width="24%"
+        mb="6em"
+      >
+        <TypewriterText
+          text={testimonies["invader-2"]}
+          fontSize="xl"
+          textAlign="center"
+          width="100%"
+        />
+        <Flex position="relative" flexDir="column" alignItems="center">
+          <Invader
+            id="invader-2"
+            position="relative"
+            setTestimony={(text) => handleTestimonyChange("invader-2", text)}
+          />
+          <Text fontSize="25px" fontWeight="bold">
+            Full Name Here
+          </Text>
+          <Text>Relationship</Text>
+        </Flex>
+      </Flex>
+
+      {/* INVADER 3 */}
+      <Flex
+        flexDir="column"
+        height="33em"
+        alignItems="center"
+        justifyContent="space-between"
+        width="24%"
+        mb="6em"
+      >
+        <TypewriterText
+          text={testimonies["invader-3"]}
+          fontSize="xl"
+          textAlign="center"
+          width="100%"
+        />
+        <Flex position="relative" flexDir="column" alignItems="center">
+          <Invader
+            id="invader-3"
+            position="relative"
+            setTestimony={(text) => handleTestimonyChange("invader-3", text)}
+          />
+          <Text fontSize="25px" fontWeight="bold">
+            Full Name Here
+          </Text>
+          <Text>Relationship</Text>
+        </Flex>
+      </Flex>
+
+      {/* INVADER 4 */}
+      <Flex
+        flexDir="column"
+        height="33em"
+        alignItems="center"
+        justifyContent="space-between"
+        width="24%"
+        mb="6em"
+      >
+        <TypewriterText
+          text={testimonies["invader-4"]}
+          fontSize="xl"
+          textAlign="center"
+          width="100%"
+        />
+        <Flex position="relative" flexDir="column" alignItems="center">
+          <Invader
+            id="invader-4"
+            position="relative"
+            setTestimony={(text) => handleTestimonyChange("invader-4", text)}
+          />
+          <Text fontSize="25px" fontWeight="bold">
+            Full Name Here
+          </Text>
+          <Text>Relationship</Text>
+        </Flex>
+      </Flex>
+
+      {/* Testimonial Title */}
+      <Text position="absolute" top="425px" mx="auto" fontSize="2.3em">
         {testTitle}
       </Text>
+
       <Spaceship />
     </Flex>
   );

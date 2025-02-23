@@ -19,7 +19,8 @@ const Spaceship = () => {
     } else if (location.pathname === "/experience") {
       setPosition({ x: 500, y: 300 });
     } else if (location.pathname === "/testimonials") {
-      setPosition({ x: 952, y: 500 });
+      setPosition({ x: 952, y: 520 });
+      // setRotation(180);
     }
   }, [location.pathname]);
 
@@ -107,87 +108,6 @@ const Spaceship = () => {
   useEffect(() => {
     spaceShipMovedCallback();
   }, [position, spaceShipMovedCallback]);
-
-  // useEffect(() => {
-  //   const checkCollision = () => {
-  //     const spaceshipRect = {
-  //       left: position.x,
-  //       top: position.y,
-  //       right: position.x + 60,
-  //       bottom: position.y + 60,
-  //     };
-
-  //     const detectCollisions = (
-  //       elements: NodeListOf<Element>,
-  //       callback: (element: Element, isColliding: boolean) => void
-  //     ) => {
-  //       elements.forEach((element) => {
-  //         const rect = element.getBoundingClientRect();
-
-  //         const isColliding =
-  //           spaceshipRect.left < rect.right &&
-  //           spaceshipRect.right > rect.left &&
-  //           spaceshipRect.top < rect.bottom &&
-  //           spaceshipRect.bottom > rect.top;
-
-  //         callback(element, isColliding);
-  //       });
-  //     };
-
-  //     let collisionDetected = false;
-
-  //     // Check for collisions with docking stations
-  //     const dockingStations = document.querySelectorAll(
-  //       '[id^="docking-station"]'
-  //     );
-  //     detectCollisions(dockingStations, (station, isColliding) => {
-  //       if (isColliding) {
-  //         console.log("COLLIDE DETECTED");
-  //         collisionDetected = true;
-
-  //         const dockingStationId = station.id;
-  //         if (dockingStationId === "docking-station-1" && setSummary) {
-  //           station.setAttribute("src", "/images/ds1Red.png");
-  //           setSummary(
-  //             `Welcome to my portfolio website! I am a full stack developer with a
-  //             passion for creating web applications. I am currently a Junior at Brigham Young University Idaho studying
-  //             Software Engineering. I have experience with React, Node.js, ChakraUI,
-  //             Express, MongoDB, and more, with a knack for creativity. I am always looking for new opportunities
-  //             to learn and grow as a developer while also bringing valuable work and experience to your team.`
-  //           );
-  //         } else if (dockingStationId === "docking-station-2" && setPFP) {
-  //           station.setAttribute("src", "/images/ds1Red.png");
-  //           setPFP("/images/selfPortraitCollarCropped.jpg");
-  //         }
-  //       } else {
-  //         station.setAttribute("src", "/images/ds1Green.png");
-  //       }
-  //     });
-
-  //     // Check for collisions with nav portals
-  //     const navPortals = document.querySelectorAll('[id^="nav-portal"]');
-  //     detectCollisions(navPortals, (portal, isColliding) => {
-  //       if (isColliding) {
-  //         console.log("COLLIDE DETECTED");
-  //         collisionDetected = true;
-
-  //         const portalId = portal.id;
-  //         if (portalId === "nav-portal-home") {
-  //           console.log("Navigating to Home");
-  //         } else if (portalId === "nav-portal-experience") {
-  //           console.log("Navigating to Experience");
-  //         }
-  //       }
-  //     });
-
-  //     if (!collisionDetected) {
-  //       if (setSummary) setSummary("");
-  //       if (setPFP) setPFP("");
-  //     }
-  //   };
-
-  //   checkCollision();
-  // }, [position, setSummary, setPFP]);
 
   return (
     <Box
