@@ -1,6 +1,7 @@
-import { useEffect, useContext, useRef } from "react";
+import { useEffect, useContext, useRef, useState } from "react";
 import { Box, BoxProps, Image } from "@chakra-ui/react";
 import { CollisionContext } from "@/context/collision-provider.tsx";
+import { keyframes } from "@emotion/react";
 
 interface DockingStationProps extends BoxProps {
   id: string;
@@ -17,6 +18,7 @@ const DockingStation = ({
   ...props
 }: DockingStationProps) => {
   const { collidableElementsCallback } = useContext(CollisionContext);
+  const [isCollided, setIsCollided] = useState(false);
   const dockingStationRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -24,6 +26,7 @@ const DockingStation = ({
       element: dockingStationRef.current,
       collisionCallback: () => {
         console.log(`Collision STARTED with: ${id}`);
+        setIsCollided(true);
 
         if (dockingStationRef.current) {
           const imageElement = dockingStationRef.current.querySelector("img");
@@ -74,6 +77,12 @@ const DockingStation = ({
     });
   }, [collidableElementsCallback, setSummary, setPFP, setTestimony]);
 
+  const hoverAnimation = keyframes`
+    0% { transform: translate(-50%, -50%) translateY(0); }  
+    50% { transform: translate(-50%, -50%) translateY(-30px); } 
+    100% { transform: translate(-50%, -50%) translateY(0); }  
+  `;
+
   return (
     <Box
       ref={dockingStationRef}
@@ -81,8 +90,14 @@ const DockingStation = ({
       position="absolute"
       boxSize="100px"
       objectFit="cover"
+      top="50%" /* Ensure it starts exactly where you want */
+      left="50%"
       zIndex={0}
+      willChange="transform"
       transition="all .3s ease-in-out"
+      animation={
+        isCollided ? "none" : `${hoverAnimation} 5s ease-in-out infinite`
+      }
       {...props}
     >
       <Image src="../images/ds1Green.png" />

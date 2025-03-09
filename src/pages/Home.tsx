@@ -71,10 +71,17 @@ function HomePage() {
           text="Fly around and learn more about what I can bring to your team!"
           speed={50}
         />
-        <InfoTip
+        <TypewriterText
+          fontSize="s"
+          delay={4}
+          style={{ marginTop: "10px" }}
+          text="Collide with objects to reveal content. Fly safe! Or not..."
+          speed={50}
+        />
+        {/* <InfoTip
           size="lg"
           content="you can also click or hover anywhere you want"
-        />
+        /> */}
       </Flex>
       <Flex
         flex="1"

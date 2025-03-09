@@ -37,7 +37,6 @@ function Testimonials() {
       justifyContent="space-evenly"
       alignItems="flex-end"
     >
-      {/* INVADER 1 */}
       <Flex
         flexDir="column"
         height="33em"
@@ -150,9 +149,16 @@ function Testimonials() {
       </Flex>
 
       {/* Testimonial Title */}
-      <Text position="absolute" top="425px" mx="auto" fontSize="2.3em">
-        {testTitle}
-      </Text>
+      <TypewriterText
+        text={testTitle}
+        speed={30}
+        style={{
+          position: "absolute",
+          top: "425px",
+          mx: "auto",
+          fontSize: "2.3em",
+        }}
+      />
 
       <Spaceship />
     </Flex>

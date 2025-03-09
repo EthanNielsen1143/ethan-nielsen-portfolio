@@ -17,10 +17,9 @@ const Spaceship = () => {
     if (location.pathname === "/") {
       setPosition({ x: 955, y: 180 });
     } else if (location.pathname === "/experience") {
-      setPosition({ x: 500, y: 300 });
+      setPosition({ x: 952, y: 140 });
     } else if (location.pathname === "/testimonials") {
       setPosition({ x: 952, y: 520 });
-      // setRotation(180);
     }
   }, [location.pathname]);
 

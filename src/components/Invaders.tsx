@@ -12,7 +12,6 @@ const Invader = ({ id, setTestimony, ...props }: InvadersProps) => {
   const { collidableElementsCallback } = useContext(CollisionContext);
   const invaderRef = useRef<HTMLDivElement | null>(null);
 
-  // State to control animation on collision
   const [isCollided, setIsCollided] = useState(false);
 
   useEffect(() => {
@@ -23,10 +22,10 @@ const Invader = ({ id, setTestimony, ...props }: InvadersProps) => {
         setIsCollided(true); // Stop floating on collision
 
         if (setTestimony) {
-          setTestimony(`Ethan is one of the most insightful and innovative problem solvers I’ve worked with. 
+          setTestimony(`"Ethan is one of the most insightful and innovative problem solvers I’ve worked with. 
             His ability to break down complex challenges and find efficient solutions is unmatched. 
             Whether it's coding, consulting, or just making the team laugh, Ethan always delivers. 
-            If you're looking for someone who blends technical expertise with creativity and leadership, look no further!`);
+            If you're looking for someone who blends technical expertise with creativity and leadership, look no further!"`);
         }
       },
     });
@@ -46,7 +45,7 @@ const Invader = ({ id, setTestimony, ...props }: InvadersProps) => {
       alignItems="center"
       ref={invaderRef}
       id={id}
-      position="absolute"
+      position="relative"
       zIndex={0}
       borderRadius="50%"
       w="100px"
