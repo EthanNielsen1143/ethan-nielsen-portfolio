@@ -55,7 +55,7 @@ const Experience = () => {
           id: "satellite-3",
           title: "Schooling at Brigham Young University-Idaho",
           date: "Janurary 2022 to Current",
-          body: `Through coursework and hands-on projects, I gained experience in software development, web applications, and automation. I built server-side rendered web apps, including a wedding videography platform and a car sales site, strengthening my skills in JavaScript, HTML/CSS, APIs, and MVC frameworks. I also developed a Python game using Pygame to test reaction speed, improving my understanding of game loops and algorithm efficiency. Additionally, I created a C#-based program for home cooks to manage recipes, track inventory, and generate meal suggestions, reinforcing my knowledge of software architecture and data management. These projects, along with my studies, have built a strong foundation in full-stack development, automation, and software engineering principles.`,
+          body: `Through coursework and hands-on projects, I gained experience in software development, web applications, and automation. I will be graduating with the certificates: Full-Stack Development and Software Management.  I built server-side rendered web apps, including a wedding videography platform and a car sales site, strengthening my skills in JavaScript, HTML/CSS, APIs, and MVC frameworks. I also developed a Python game using Pygame to test reaction speed, improving my understanding of game loops and algorithm efficiency. Additionally, I created a C#-based program for home cooks to manage recipes, track inventory, and generate meal suggestions, reinforcing my knowledge of software architecture and data management. These projects, along with my studies, have built a strong foundation in full-stack development, automation, and software engineering principles.`,
         },
         "satellite-4": {
           id: "satellite-4",
@@ -107,7 +107,7 @@ const Experience = () => {
             fontWeight="bold"
             fontSize="2em"
             speed={100}
-            delay={7.5}
+            delay={7}
           />
         </Box>
         <Satellite
@@ -260,7 +260,7 @@ const Experience = () => {
             fontWeight="bold"
             fontSize="1.5em"
             speed={100}
-            delay={9.5}
+            delay={9}
           />
         </Box>
         <Satellite

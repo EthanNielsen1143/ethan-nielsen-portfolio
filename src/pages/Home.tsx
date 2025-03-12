@@ -107,7 +107,7 @@ function HomePage() {
         <Heading as="h1" size="3xl">
           The Face Behind the Code
         </Heading>
-        {pfp && <Image src={pfp} boxSize="360px" borderRadius={10} />}
+        {pfp && <Image src={pfp} boxSize="360px" zoom={0} borderRadius={10} />}
       </Flex>
     </Flex>
   );
