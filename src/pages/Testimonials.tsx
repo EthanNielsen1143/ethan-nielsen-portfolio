@@ -17,7 +17,6 @@ function Testimonials() {
     "Hear what others have to say about Ethan"
   );
 
-  // Handler for updating a specific testimony
   const handleTestimonyChange = (id: string, newTestimony: string) => {
     setTestimonies((prev) => ({
       ...prev,

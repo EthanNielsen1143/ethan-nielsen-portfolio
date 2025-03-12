@@ -2,9 +2,7 @@
 import { Heading, Text, Flex, Image } from "@chakra-ui/react";
 import { useState } from "react";
 import Spaceship from "../components/Spaceship";
-import { InfoTip } from "@/components/ui/toggle-tip";
 import DockingStation from "@/components/dockingStation";
-// import Invader from "@/components/Invaders";
 import TypewriterText from "@/components/TypeWriterText";
 
 function HomePage() {
@@ -99,7 +97,7 @@ function HomePage() {
           setPFP={setPFP}
           position="absolute"
           top="50%"
-          left="-8%"
+          left="-10%"
           transform="translate(-50%, -50%)"
           boxSize="100px"
           objectFit="cover"

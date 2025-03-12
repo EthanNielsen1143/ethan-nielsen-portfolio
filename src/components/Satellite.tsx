@@ -1,57 +1,70 @@
 import { useEffect, useContext, useRef, useState } from "react";
-import { keyframes } from "@emotion/react";
-import { Box, BoxProps, Image, Text } from "@chakra-ui/react";
+import { Box, BoxProps, Image } from "@chakra-ui/react";
 import { CollisionContext } from "@/context/collision-provider.tsx";
+import { keyframes } from "@emotion/react";
 
 interface SatellitesProps extends BoxProps {
   id: string;
   size: string;
-  setModal?: (modal: string) => void;
+  title: string;
+  onCollision: (id: string) => void;
 }
 
-const Satellite = ({ id, size, ...props }: SatellitesProps) => {
+const Satellite = ({
+  id,
+  size,
+  title,
+  onCollision,
+  ...props
+}: SatellitesProps) => {
   const { collidableElementsCallback } = useContext(CollisionContext);
   const satelliteRef = useRef<HTMLDivElement | null>(null);
   const [isCollided, setIsCollided] = useState(false);
-  const hoverAnimationSatellite = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-25px); }
-  100% { transform: translateY(0); }
-`;
+
   useEffect(() => {
+    if (!satelliteRef.current) return;
+
+    const element = satelliteRef.current;
+
+    const handleCollision = () => {
+      console.log(`Collision STARTED with: ${id}`);
+      setIsCollided(true);
+      onCollision(id);
+    };
+
     collidableElementsCallback({
-      element: satelliteRef.current,
-      collisionCallback: () => {
-        console.log(`Collision STARTED with: ${id}`);
-        setIsCollided(true);
-      },
+      element,
+      collisionCallback: handleCollision,
     });
-  }, [collidableElementsCallback]);
+
+    return () => {
+      collidableElementsCallback({
+        element,
+        collisionCallback: () => {},
+      });
+    };
+  }, [id, collidableElementsCallback]); // Depend on id to re-register
+
+  const hoverAnimation = keyframes`
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    `;
 
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
       ref={satelliteRef}
       id={id}
       w={size}
       h={size}
-      position="relative"
-      zIndex={0}
-      borderRadius="50%"
-      overflow="visible"
-      animation={
-        isCollided
-          ? "none"
-          : `${hoverAnimationSatellite} 3s ease-in-out infinite `
-      }
       {...props}
+      animation={
+        isCollided ? "none" : `${hoverAnimation} 2s ease-in-out infinite`
+      }
     >
       <Image
         src={`../images/${id}.png`}
-        alt={`Satellite ${id}`}
+        alt={title}
         boxSize="auto"
         objectFit="contain"
       />
