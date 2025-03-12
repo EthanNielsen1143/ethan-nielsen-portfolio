@@ -5,8 +5,6 @@ import TypewriterText from "@/components/TypeWriterText";
 import Satellite from "@/components/Satellite";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionImage = motion(Image);
-
 const Experience = () => {
   const [activeExperience, setActiveExperience] = useState<{
     id: string | null;
@@ -20,7 +18,7 @@ const Experience = () => {
     body: "",
   });
 
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [_, setIsTransitioning] = useState(false);
 
   const defaultTitle = `This is where I store all my career loot— internships, education, projects
     and things that made me better. Fly around and check it out. 
