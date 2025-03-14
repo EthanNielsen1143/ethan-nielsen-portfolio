@@ -16,13 +16,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18" # Choose the Node.js version your project requires
-          cache: "pnpm" # or 'yarn' if you use Yarn
+          cache: "npm" # or 'yarn' if you use Yarn
 
       - name: Install dependencies
-        run: pnpm install # or 'yarn install --frozen-lockfile'
+        run: npm ci # or 'yarn install --frozen-lockfile'
 
       - name: Build
-        run: pnpm build # or your specific build command
+        run: npm run build # or your specific build command
 
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
