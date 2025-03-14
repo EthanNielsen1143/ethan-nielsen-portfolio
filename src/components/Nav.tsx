@@ -28,7 +28,7 @@ const Nav = () => {
         >
           Home
         </Link>
-        <Portal id={"nav-portal-home"} src={"../public/videos/portal.webm"} />
+        <Portal id={"nav-portal-home"} src={"./videos/portal.webm"} />
       </Flex>
       <Flex flexDir="column" alignItems="center" justifyContent="content">
         <Link
@@ -42,7 +42,7 @@ const Nav = () => {
         >
           Experience
         </Link>
-        <PortalExp src="../public/videos/portal.webm" />
+        <PortalExp src="./videos/portal.webm" />
       </Flex>
       <Flex flexDir="column" alignItems="center" justifyContent="content">
         <Link
@@ -55,10 +55,7 @@ const Nav = () => {
         >
           Testimonials
         </Link>
-        <Portal
-          id={"nav-portal-testimonials"}
-          src="../public/videos/portal.webm"
-        />
+        <Portal id={"nav-portal-testimonials"} src="./videos/portal.webm" />
       </Flex>
     </Flex>
   );

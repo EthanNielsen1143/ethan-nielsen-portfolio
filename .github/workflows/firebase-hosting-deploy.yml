@@ -43,8 +43,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Debug project structure
+        run: |
+          echo "Project structure:"
+          ls -la
+          echo "Source directory structure:"
+          ls -la src || echo "src directory not found"
+          echo "Content of index.html:"
+          cat index.html
+
       - name: Build
         run: pnpm run build
+        env:
+          # Add this to help with path resolution
+          NODE_ENV: production
 
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
