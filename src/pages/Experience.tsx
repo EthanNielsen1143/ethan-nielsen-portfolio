@@ -59,7 +59,7 @@ const Experience = () => {
           id: "satellite-4",
           title: "AI Trainer at Cartwheel Inc.",
           date: "June 2024 to Jan 2025",
-          body: `At Cartwheel AI, I was responsible for labeling and annotating large datasets of motion capture and animation data to support the training of AI models. My work focused on ensuring data accuracyand consistency, which contributed to improving the performance of AI-generated 3D animations. I collaborated with the AI development team to meet project requirements and maintained high-quality standards throughout the data preparation process.`,
+          body: `At Cartwheel AI, I was responsible for labeling and annotating large datasets of motion capture and animation data to support the training of AI models. My work focused on ensuring data accuracy and consistency, which contributed to improving the performance of AI-generated 3D animations. I collaborated with the AI development team to meet project requirements and maintained high-quality standards throughout the data preparation process.`,
         },
       };
 

@@ -35,6 +35,8 @@ function Testimonials() {
       position="relative"
       justifyContent="space-evenly"
       alignItems="flex-end"
+      px="3em"
+      gap="3em"
     >
       <Flex
         flexDir="column"
