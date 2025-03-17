@@ -29,6 +29,7 @@ function Testimonials() {
 
   return (
     <Flex
+      color="white"
       width="100%"
       height="100vh"
       flexDir="row"

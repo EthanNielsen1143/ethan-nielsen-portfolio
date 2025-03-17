@@ -53,7 +53,7 @@ const Experience = () => {
           id: "satellite-3",
           title: "Schooling at Brigham Young University-Idaho",
           date: "Janurary 2022 to Current",
-          body: `Through coursework and hands-on projects, I gained experience in software development, web applications, and automation. I will be graduating with the certificates: Full-Stack Development and Software Management.  I built server-side rendered web apps, including a wedding videography platform and a car sales site, strengthening my skills in JavaScript, HTML/CSS, APIs, and MVC frameworks. I also developed a Python game using Pygame to test reaction speed, improving my understanding of game loops and algorithm efficiency. Additionally, I created a C#-based program for home cooks to manage recipes, track inventory, and generate meal suggestions, reinforcing my knowledge of software architecture and data management. These projects, along with my studies, have built a strong foundation in full-stack development, automation, and software engineering principles.`,
+          body: `Through coursework and hands-on projects, I gained experience in software development, web applications, and automation. I will be graduating with the certificates: Full-Stack Development and Software Management. The project I am most proud of is this portolio site! It is built with React, Type-Script, and Chakra-UI. I built server-side rendered web apps as well, including a wedding videography platform and a car sales site, strengthening my skills in JavaScript, HTML/CSS, APIs, and MVC frameworks. I also developed a Python game using Pygame to test reaction speed, improving my understanding of game loops and algorithm efficiency. Additionally, I created a C#-based program for home cooks to manage recipes, track inventory, and generate meal suggestions, reinforcing my knowledge of software architecture and data management. These projects, along with my studies, have built a strong foundation in full-stack development, automation, and software engineering principles.`,
         },
         "satellite-4": {
           id: "satellite-4",
@@ -70,6 +70,7 @@ const Experience = () => {
 
   return (
     <Flex
+      color="white"
       width="100%"
       height="100vh"
       flexDir="row"
@@ -172,7 +173,7 @@ const Experience = () => {
             top="50%"
             left="50%"
             transform="translate(-50%, -50%)"
-            width="90%"
+            width="95%"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -201,7 +202,7 @@ const Experience = () => {
                     }
                     fontSize="2.3em"
                     fontWeight="bold"
-                    mb=".5em"
+                    mb=".2em"
                   />
                   <Flex width="60%" justifyContent="center">
                     <TypewriterText
@@ -218,7 +219,7 @@ const Experience = () => {
                   <Flex width="80%" marginTop="2em" justifyContent="center">
                     <TypewriterText
                       text={activeExperience.id ? activeExperience.body : ""}
-                      fontSize="1.17em"
+                      fontSize="1.1em"
                       textAlign="center"
                       delay={2.5}
                     />

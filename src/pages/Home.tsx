@@ -16,7 +16,7 @@ function HomePage() {
       display="flex"
       flexDir="row"
       as="header"
-      color="white.200"
+      color="white"
       p={125}
       gap={8}
       justifyContent="center"

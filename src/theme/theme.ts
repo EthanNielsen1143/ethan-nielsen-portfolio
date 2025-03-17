@@ -60,6 +60,18 @@ const customConfig = defineConfig({
         },
       },
     },
+    semanticTokens: {
+      colors: {
+        text: {
+          default: { value: "white" }, // Force all text to be white
+          _dark: { value: "white" },
+        },
+        background: {
+          default: { value: "#121212" }, // Set dark background
+          _dark: { value: "#121212" },
+        },
+      },
+    },
   },
 });
 
