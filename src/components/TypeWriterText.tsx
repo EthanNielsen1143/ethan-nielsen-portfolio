@@ -4,7 +4,7 @@ import { Text } from "@chakra-ui/react";
 interface TypewriterTextProps {
   text: string;
   fontWeight?: string;
-  fontSize?: string;
+  fontSize?: string | string[];
   speed?: number;
   delay?: number;
   [key: string]: any;

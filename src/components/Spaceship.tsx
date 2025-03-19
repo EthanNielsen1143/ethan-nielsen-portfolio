@@ -9,7 +9,6 @@ const Spaceship = () => {
   const keys = useRef<{ [key: string]: boolean }>({});
   const [rotation, setRotation] = useState(0);
   const spaceshipRef = useRef<HTMLDivElement | null>(null);
-
   const { collidableElementsCallback, spaceShipMovedCallback } =
     useContext(CollisionContext);
 
@@ -32,57 +31,57 @@ const Spaceship = () => {
 
   useEffect(() => {
     let animationFrameId: number;
+    let lastTime = performance.now();
 
-    const move = () => {
+    const move = (currentTime: number) => {
+      const deltaTime = (currentTime - lastTime) / 16.67; // Normalize to ~60 FPS
+      lastTime = currentTime;
+
       setPosition((prev) => {
         let newX = prev.x;
         let newY = prev.y;
+        const speed = 5 * deltaTime; // Adjust speed based on delta time
 
         if (keys.current.ArrowUp && keys.current.ArrowRight) {
-          newY += 2;
-          newX += 2;
+          newY += speed;
+          newX += speed;
           setRotation(45);
         } else if (keys.current.ArrowUp && keys.current.ArrowLeft) {
-          newY += 2;
-          newX -= 2;
+          newY += speed;
+          newX -= speed;
           setRotation(-45);
         } else if (keys.current.ArrowDown && keys.current.ArrowRight) {
-          newY -= 2;
-          newX += 2;
+          newY -= speed;
+          newX += speed;
           setRotation(135);
         } else if (keys.current.ArrowDown && keys.current.ArrowLeft) {
-          newY -= 2;
-          newX -= 2;
+          newY -= speed;
+          newX -= speed;
           setRotation(225);
         } else if (keys.current.ArrowUp) {
-          newY += 2;
+          newY += speed;
           setRotation(0);
         } else if (keys.current.ArrowDown) {
-          newY -= 2;
+          newY -= speed;
           setRotation(180);
         } else if (keys.current.ArrowLeft) {
-          newX -= 2;
+          newX -= speed;
           setRotation(270);
         } else if (keys.current.ArrowRight) {
-          newX += 2;
+          newX += speed;
           setRotation(90);
         }
 
         newX = Math.max(35, Math.min(newX, window.innerWidth - 95));
         newY = Math.max(-25, Math.min(newY, window.innerHeight - 95));
 
-        if (newX !== prev.x || newY !== prev.y) {
-          return { x: newX, y: newY };
-        }
-
-        return prev;
+        return { x: newX, y: newY };
       });
 
       animationFrameId = requestAnimationFrame(move);
     };
 
-    move();
-
+    animationFrameId = requestAnimationFrame(move);
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
@@ -116,7 +115,6 @@ const Spaceship = () => {
       bottom={`${position.y}px`}
       left={`${position.x}px`}
       transform={`translate(-50%, -50%) rotate(${rotation}deg)`}
-      //transition="transform 0.15s ease-in-out"
       zIndex={1}
     >
       <Image src="/images/shuttle.png" alt="Spaceship" boxSize="60px" />
