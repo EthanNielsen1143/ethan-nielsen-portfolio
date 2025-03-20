@@ -91,7 +91,7 @@ function HomePage() {
           setPFP={setPFP}
           position="absolute"
           top="32vh"
-          left="-4vw"
+          left="-5vw"
           transform="translate(-50%, -50%)"
           boxSize="5.3vw"
           objectFit="cover"
