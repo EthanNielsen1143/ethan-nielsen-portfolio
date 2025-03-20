@@ -40,7 +40,12 @@ const Nav = () => {
         </Link>
         <PortalExp src="./videos/portal.webm" />
       </Flex>
-      <Flex flexDir="column" alignItems="center" justifyContent="content">
+      <Flex
+        flexDir="column"
+        alignItems="center"
+        justifyContent="content"
+        ml="-2vw"
+      >
         <Link
           as="a"
           href="/testimonials"

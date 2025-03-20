@@ -13,12 +13,15 @@ const Spaceship = () => {
     useContext(CollisionContext);
 
   useEffect(() => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
     if (location.pathname === "/") {
-      setPosition({ x: 955, y: 180 });
+      setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.2 }); // center-ish
     } else if (location.pathname === "/experience") {
-      setPosition({ x: 952, y: 140 });
+      setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.15 });
     } else if (location.pathname === "/testimonials") {
-      setPosition({ x: 952, y: 520 });
+      setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.6 });
     }
   }, [location.pathname]);
 
