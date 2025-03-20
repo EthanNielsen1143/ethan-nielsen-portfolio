@@ -24,9 +24,8 @@ const PortalExp = ({ src }: PortalProps) => {
     <Box
       ref={portalExpRef}
       position="absolute"
-      width="6em"
-      height="6em"
-      marginTop="3em"
+      width="5vw"
+      marginTop="3.5vw"
       objectFit="cover"
       zIndex={0}
     >

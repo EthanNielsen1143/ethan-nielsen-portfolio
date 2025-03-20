@@ -1,4 +1,3 @@
-// import { useState, useEffect, useRef } from "react";
 import { Heading, Text, Flex, Image } from "@chakra-ui/react";
 import { useState } from "react";
 import Spaceship from "../components/Spaceship";
@@ -11,13 +10,13 @@ function HomePage() {
 
   return (
     <Flex
-      width="100%"
+      width="100vw"
       height="100vh"
       display="flex"
       flexDir="row"
       as="header"
       color="white"
-      p={125}
+      p={"5vw"}
       gap={8}
       justifyContent="center"
       textAlign="center"
@@ -38,20 +37,21 @@ function HomePage() {
         gap={6}
       >
         <Flex dir="row">
-          <Heading as="h1" size="6xl">
+          <Heading as="h1" fontSize={"3vw"}>
             Ethan Nielsen
           </Heading>
           <DockingStation
+            boxSize="5.3vw"
             id="docking-station-1"
             setSummary={setSummary}
-            top="50%"
-            left="110%"
+            top="20vh"
+            left="28vw"
             transform="translate(-50%, -50%)"
           />
         </Flex>
-        <Text fontSize="xl">Full Stack Developer</Text>
+        <Text fontSize={"1.5vw"}>Full Stack Developer</Text>
         {summary && (
-          <TypewriterText fontSize="m" mt={5} text={summary} speed={20} />
+          <TypewriterText fontSize=".9vw" mt={5} text={summary} speed={20} />
         )}
       </Flex>
       <Flex
@@ -61,31 +61,25 @@ function HomePage() {
         textAlign="center"
         justify="flex-end"
         id="spaceship-start"
-        // position="relative"
       >
         <Spaceship />
         <TypewriterText
-          fontSize="s"
+          fontSize={".8vw"}
           text="Fly around and learn more about what I can bring to your team!"
           speed={50}
         />
         <TypewriterText
-          fontSize="s"
+          fontSize={".8vw"}
           delay={4}
-          style={{ marginTop: "10px" }}
+          style={{ marginTop: ".5vw" }}
           text="Collide with objects to reveal content. Fly safe! Or not..."
           speed={50}
         />
-        {/* <InfoTip
-          size="lg"
-          content="you can also click or hover anywhere you want"
-        /> */}
       </Flex>
       <Flex
         flex="1"
         flexDir="column"
         height="80%"
-        dir="column"
         align="center"
         justify="center"
         borderRadius={30}
@@ -96,18 +90,17 @@ function HomePage() {
           id="docking-station-2"
           setPFP={setPFP}
           position="absolute"
-          top="50%"
-          left="-10%"
+          top="32vh"
+          left="-4vw"
           transform="translate(-50%, -50%)"
-          boxSize="100px"
+          boxSize="5.3vw"
           objectFit="cover"
           zIndex={0}
-          // transition="all .3s ease-in-out"
         />
-        <Heading as="h1" size="3xl">
+        <Heading as="h1" fontSize={"2vw"}>
           The Face Behind the Code
         </Heading>
-        {pfp && <Image src={pfp} boxSize="360px" zoom={0} borderRadius={10} />}
+        {pfp && <Image src={pfp} width="20vw" borderRadius={10} />}
       </Flex>
     </Flex>
   );

@@ -40,7 +40,7 @@ const Spaceship = () => {
       setPosition((prev) => {
         let newX = prev.x;
         let newY = prev.y;
-        const speed = 5 * deltaTime; // Adjust speed based on delta time
+        const speed = 6 * deltaTime; // Adjust speed based on delta time
 
         if (keys.current.ArrowUp && keys.current.ArrowRight) {
           newY += speed;
@@ -117,7 +117,7 @@ const Spaceship = () => {
       transform={`translate(-50%, -50%) rotate(${rotation}deg)`}
       zIndex={1}
     >
-      <Image src="/images/shuttle.png" alt="Spaceship" boxSize="60px" />
+      <Image src="/images/shuttle.png" alt="Spaceship" boxSize="3.3vw" />
     </Box>
   );
 };

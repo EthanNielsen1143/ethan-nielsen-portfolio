@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Text } from "@chakra-ui/react";
+import { ResponsiveValue } from "@chakra-ui/styled-system";
 
 interface TypewriterTextProps {
   text: string;
   fontWeight?: string;
-  fontSize?: string | string[];
+  fontSize?: ResponsiveValue<string>;
   speed?: number;
   delay?: number;
   [key: string]: any;

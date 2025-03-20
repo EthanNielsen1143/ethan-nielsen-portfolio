@@ -5,26 +5,24 @@ import PortalExp from "./PortalExp.tsx";
 const Nav = () => {
   return (
     <Flex
-      pt="50px"
-      gap="28em"
+      pt="3vw"
+      gap="25vw"
       position="fixed"
       display="flex"
       justifyContent="center"
       alignItems="center"
       width="100%"
       zIndex="1"
-      top="0"
-      left="0"
     >
       <Flex flexDir="column" alignItems="center">
         <Link
-          as="a" // Change from "asChild" to "as='a'"
-          href="/" // Use href instead of ReactRouterLink
+          as="a"
+          href="/"
           outline="none"
           color="white"
-          px="10px"
-          mb="1em"
+          mb="1vw"
           zIndex={1}
+          fontSize="1vw"
         >
           Home
         </Link>
@@ -36,9 +34,7 @@ const Nav = () => {
           href="/experience"
           outline="none"
           color="white"
-          px="10px"
-          fontSize="3xl"
-          zIndex={1}
+          fontSize="2vw"
         >
           Experience
         </Link>
@@ -51,6 +47,7 @@ const Nav = () => {
           outline="none"
           color="white"
           mb="1em"
+          fontSize="1vw"
           zIndex={1}
         >
           Testimonials

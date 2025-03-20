@@ -37,9 +37,8 @@ const Portal = ({ src, id }: PortalProps) => {
     <Box
       ref={portalRef}
       position="absolute"
-      width="4em"
-      height="4em"
-      marginTop="2em"
+      width="3.5vw"
+      marginTop="2vw"
       objectFit="cover"
       zIndex={0}
     >

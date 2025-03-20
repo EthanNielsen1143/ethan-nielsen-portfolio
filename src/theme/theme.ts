@@ -10,12 +10,12 @@ const customConfig = defineConfig({
           200: { value: "#a9a9a9" },
           300: { value: "#8b8b8b" },
           400: { value: "#6e6e6e" },
-          500: { value: "#474747" }, // Default: Outer Space
+          500: { value: "#474747" },
           600: { value: "#3a3a3a" },
           700: { value: "#2d2d2d" },
           800: { value: "#202020" },
           900: { value: "#121212" },
-          910: { value: "#12121280" }, // Home Page Text Background Opacity
+          910: { value: "#12121280" },
           950: { value: "#0b0b0b" },
         },
         oxford: {
@@ -24,7 +24,7 @@ const customConfig = defineConfig({
           200: { value: "#94afc9" },
           300: { value: "#7095b7" },
           400: { value: "#4d7ba5" },
-          500: { value: "#0B1F32" }, // Default: Oxford Blue
+          500: { value: "#0B1F32" },
           600: { value: "#092034" },
           700: { value: "#081b2d" },
           800: { value: "#061626" },
@@ -51,7 +51,7 @@ const customConfig = defineConfig({
           200: { value: "#d6d6d6" },
           300: { value: "#c7c7c7" },
           400: { value: "#b8b8b8" },
-          500: { value: "#121416" }, // Default: Night
+          500: { value: "#121416" },
           600: { value: "#9a9a9a" },
           700: { value: "#8a8a8a" },
           800: { value: "#777777" },
@@ -63,11 +63,11 @@ const customConfig = defineConfig({
     semanticTokens: {
       colors: {
         text: {
-          default: { value: "white" }, // Force all text to be white
+          default: { value: "white" },
           _dark: { value: "white" },
         },
         background: {
-          default: { value: "#121212" }, // Set dark background
+          default: { value: "#121212" },
           _dark: { value: "#121212" },
         },
       },
