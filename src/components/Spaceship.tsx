@@ -13,16 +13,22 @@ const Spaceship = () => {
     useContext(CollisionContext);
 
   useEffect(() => {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
+    const updatePosition = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
 
-    if (location.pathname === "/") {
-      setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.2 }); // center-ish
-    } else if (location.pathname === "/experience") {
-      setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.15 });
-    } else if (location.pathname === "/testimonials") {
-      setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.6 });
-    }
+      if (location.pathname === "/") {
+        setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.2 });
+      } else if (location.pathname === "/experience") {
+        setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.15 });
+      } else if (location.pathname === "/testimonials") {
+        setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.6 });
+      }
+    };
+
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    return () => window.removeEventListener("resize", updatePosition);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -37,13 +43,13 @@ const Spaceship = () => {
     let lastTime = performance.now();
 
     const move = (currentTime: number) => {
-      const deltaTime = (currentTime - lastTime) / 16.67; // Normalize to ~60 FPS
+      const deltaTime = (currentTime - lastTime) / 16.67;
       lastTime = currentTime;
 
       setPosition((prev) => {
         let newX = prev.x;
         let newY = prev.y;
-        const speed = 6 * deltaTime; // Adjust speed based on delta time
+        const speed = 6 * deltaTime;
 
         if (keys.current.ArrowUp && keys.current.ArrowRight) {
           newY += speed;

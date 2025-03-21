@@ -82,42 +82,38 @@ const Experience = () => {
       <Flex
         flex="1"
         flexDirection="column"
-        gap="5em"
-        marginTop="10em"
+        gap="3.5vw"
+        marginTop="8vw"
         justifyContent="center"
         alignItems="center"
       >
-        <Box
-          // backgroundImage="url('/images/StretchedModalWindow.png')"
+        <Flex
           backgroundSize="100% 100%"
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
           borderRadius="11px"
-          width="250px"
-          height="10px"
           display="flex"
           justifyContent="center"
           alignItems="center"
-          // backgroundColor="rgba(173, 216, 230, 0.5)"
-          mb="2em"
+          mb="2vw"
         >
           <TypewriterText
             text="INTERNSHIPS"
             fontWeight="bold"
-            fontSize="2em"
+            fontSize="1.7vw"
             speed={100}
             delay={7}
           />
-        </Box>
+        </Flex>
         <Satellite
           id="satellite-1"
-          size="140px"
+          size="8vw"
           title="Internship 1"
           onCollision={handleCollision}
         />
         <Satellite
           id="satellite-2"
-          size="140px"
+          size="8vw"
           title="Internship 2"
           onCollision={handleCollision}
         />
@@ -129,12 +125,10 @@ const Experience = () => {
           flexDirection="column"
           width="100%"
           textAlign="center"
-          gap="2em"
+          gap="2vw"
           justifyContent="center"
           alignItems="center"
           position="relative"
-          minHeight="250px"
-          minWidth="500px"
           zIndex={3}
         >
           {/* Background Image (Only Shows AFTER Title Fades Out) */}
@@ -155,12 +149,12 @@ const Experience = () => {
                 <Image
                   src="../images/StretchedModalWindow.png"
                   backgroundColor="#add8e640"
-                  borderRadius="75px"
+                  borderRadius="4vw"
                   rotate="180deg"
                   width="100%"
                   height="auto"
                   objectFit="cover"
-                  mt="150px"
+                  mt="9vw"
                   zIndex="2"
                 />
               </motion.div>
@@ -168,7 +162,7 @@ const Experience = () => {
           </AnimatePresence>
 
           {/* Text Content (Fades Out Before Background Appears) */}
-          <Box
+          <Flex
             position="absolute"
             top="50%"
             left="50%"
@@ -192,7 +186,7 @@ const Experience = () => {
                   justifyContent="center"
                   alignItems="center"
                   textAlign="center"
-                  marginTop="-6em"
+                  marginTop="-5vw"
                 >
                   <TypewriterText
                     text={
@@ -200,9 +194,9 @@ const Experience = () => {
                         ? activeExperience.title
                         : "Looks like you’ve found the Experience page"
                     }
-                    fontSize="2.3em"
+                    fontSize="2vw"
                     fontWeight="bold"
-                    mb=".2em"
+                    mb=".2vw"
                   />
                   <Flex width="60%" justifyContent="center">
                     <TypewriterText
@@ -211,15 +205,15 @@ const Experience = () => {
                           ? activeExperience.date
                           : defaultTitle
                       }
-                      fontSize="1.3em"
+                      fontSize="1.2vw"
                       textAlign="center"
                       delay={1.5}
                     />
                   </Flex>
-                  <Flex width="80%" marginTop="2em" justifyContent="center">
+                  <Flex width="80%" marginTop="1.8vw" justifyContent="center">
                     <TypewriterText
                       text={activeExperience.id ? activeExperience.body : ""}
-                      fontSize="1.1em"
+                      fontSize=".95vw"
                       textAlign="center"
                       delay={2.5}
                     />
@@ -227,7 +221,7 @@ const Experience = () => {
                 </Flex>
               </motion.div>
             </AnimatePresence>
-          </Box>
+          </Flex>
         </Flex>
       </Flex>
 
@@ -235,8 +229,8 @@ const Experience = () => {
       <Flex
         flex="1"
         flexDirection="column"
-        gap="5em"
-        marginTop="10em"
+        gap="3.5vw"
+        marginTop="8vw"
         justifyContent="center"
         alignItems="center"
       >
@@ -246,31 +240,29 @@ const Experience = () => {
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
           borderRadius="11px"
-          width="250px"
-          height="10px"
           display="flex"
           justifyContent="center"
           alignItems="center"
           // backgroundColor="rgba(173, 216, 230, 0.5)"
-          mb="2em"
+          mb="2vw"
         >
           <TypewriterText
             text="OTHER EXPERIENCE"
             fontWeight="bold"
-            fontSize="1.5em"
+            fontSize="1.3vw"
             speed={100}
             delay={9}
           />
         </Box>
         <Satellite
           id="satellite-3"
-          size="140px"
+          size="8vw"
           title="Other Experience 1"
           onCollision={handleCollision}
         />
         <Satellite
           id="satellite-4"
-          size="140px"
+          size="8vw"
           title="Other Experience 2"
           onCollision={handleCollision}
         />
