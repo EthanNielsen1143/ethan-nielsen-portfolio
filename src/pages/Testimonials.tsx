@@ -45,7 +45,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6em"
+        mb="6vw"
       >
         <TypewriterText
           text={testimonies["invader-1"]}
@@ -73,7 +73,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6em"
+        mb="6vw"
       >
         <TypewriterText
           text={testimonies["invader-2"]}
@@ -101,7 +101,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6em"
+        mb="6vw"
       >
         <TypewriterText
           fontSize="1.06vw"
@@ -129,7 +129,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6em"
+        mb="6vw"
       >
         <TypewriterText
           text={testimonies["invader-4"]}
