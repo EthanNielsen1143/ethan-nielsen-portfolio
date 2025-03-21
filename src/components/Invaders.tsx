@@ -48,8 +48,7 @@ const Invader = ({ id, setTestimony, ...props }: InvadersProps) => {
       position="relative"
       zIndex={0}
       borderRadius="50%"
-      w="100px"
-      h="100px"
+      w="5.4vw"
       overflow="visible"
       animation={
         isCollided ? "none" : `${hoverAnimation} 2s ease-in-out infinite`

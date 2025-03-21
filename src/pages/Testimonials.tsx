@@ -36,12 +36,12 @@ function Testimonials() {
       position="relative"
       justifyContent="space-evenly"
       alignItems="flex-end"
-      px="3em"
-      gap="3em"
+      px="3vw"
+      gap="3vw"
     >
       <Flex
         flexDir="column"
-        height="33em"
+        height="27.3vw"
         alignItems="center"
         justifyContent="space-between"
         width="24%"
@@ -49,7 +49,7 @@ function Testimonials() {
       >
         <TypewriterText
           text={testimonies["invader-1"]}
-          fontSize="xl"
+          fontSize="1.06vw"
           textAlign="center"
           width="100%"
         />
@@ -59,7 +59,7 @@ function Testimonials() {
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-1", text)}
           />
-          <Text fontSize="25px" fontWeight="bold">
+          <Text fontSize="1.5vw" fontWeight="bold">
             Full Name Here
           </Text>
           <Text>Relationship</Text>
@@ -69,7 +69,7 @@ function Testimonials() {
       {/* INVADER 2 */}
       <Flex
         flexDir="column"
-        height="33em"
+        height="27.3vw"
         alignItems="center"
         justifyContent="space-between"
         width="24%"
@@ -77,7 +77,7 @@ function Testimonials() {
       >
         <TypewriterText
           text={testimonies["invader-2"]}
-          fontSize="xl"
+          fontSize="1.06vw"
           textAlign="center"
           width="100%"
         />
@@ -87,7 +87,7 @@ function Testimonials() {
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-2", text)}
           />
-          <Text fontSize="25px" fontWeight="bold">
+          <Text fontSize="1.5vw" fontWeight="bold">
             Full Name Here
           </Text>
           <Text>Relationship</Text>
@@ -97,15 +97,15 @@ function Testimonials() {
       {/* INVADER 3 */}
       <Flex
         flexDir="column"
-        height="33em"
+        height="27.3vw"
         alignItems="center"
         justifyContent="space-between"
         width="24%"
         mb="6em"
       >
         <TypewriterText
+          fontSize="1.06vw"
           text={testimonies["invader-3"]}
-          fontSize="xl"
           textAlign="center"
           width="100%"
         />
@@ -115,7 +115,7 @@ function Testimonials() {
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-3", text)}
           />
-          <Text fontSize="25px" fontWeight="bold">
+          <Text fontSize="1.5vw" fontWeight="bold">
             Full Name Here
           </Text>
           <Text>Relationship</Text>
@@ -125,7 +125,7 @@ function Testimonials() {
       {/* INVADER 4 */}
       <Flex
         flexDir="column"
-        height="33em"
+        height="27.3vw"
         alignItems="center"
         justifyContent="space-between"
         width="24%"
@@ -133,7 +133,7 @@ function Testimonials() {
       >
         <TypewriterText
           text={testimonies["invader-4"]}
-          fontSize="xl"
+          fontSize="1.06vw"
           textAlign="center"
           width="100%"
         />
@@ -143,7 +143,7 @@ function Testimonials() {
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-4", text)}
           />
-          <Text fontSize="25px" fontWeight="bold">
+          <Text fontSize="1.5vw" fontWeight="bold">
             Full Name Here
           </Text>
           <Text>Relationship</Text>
@@ -156,9 +156,9 @@ function Testimonials() {
         speed={30}
         style={{
           position: "absolute",
-          top: "425px",
+          top: "45vh",
           mx: "auto",
-          fontSize: "2.3em",
+          fontSize: "2.3vw",
         }}
       />
 
