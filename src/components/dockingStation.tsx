@@ -48,13 +48,6 @@ const DockingStation = ({
         if (id === "docking-station-2" && setPFP) {
           setPFP("/images/selfPortraitCollarCropped.jpg");
         }
-
-        if (id === "docking-station-3" && setTestimony) {
-          setTestimony(`Ethan is one of the most insightful and innovative problem solvers I’ve worked with. 
-            His ability to break down complex challenges and find efficient solutions is unmatched. 
-            Whether it's coding, consulting, or just making the team laugh, Ethan always delivers. 
-            If you're looking for someone who blends technical expertise with creativity and leadership, look no further!`);
-        }
       },
       collisionEndCallback: () => {
         console.log(`Collision ENDED with: ${id}`);
