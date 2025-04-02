@@ -32,7 +32,7 @@ function HomePage() {
 
   function downloadResume(): void {
     const link = document.createElement("a");
-    link.href = "../../public/files/Ethan_Nielsen_Resume.pdf";
+    link.href = "/files/Ethan_Nielsen_Resume.pdf";
     link.download = "Ethan_Nielsen_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -143,7 +143,7 @@ function HomePage() {
               transition={{ duration: 0.6 }}
               className="fixed bottom-4 left-4 flex items-end gap-2 z-50"
             >
-              <Image w="6.5vw" src="../../public/images/invader-5.png" />
+              <Image w="6.5vw" src="/images/invader-5.png" />
             </motion.div>
           )}
           {showInvaderText && (
