@@ -1,4 +1,4 @@
-import { Heading, Text, Flex, Image, Button } from "@chakra-ui/react";
+import { Heading, Flex, Button } from "@chakra-ui/react";
 import TypewriterText from "@/components/TypeWriterText";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
