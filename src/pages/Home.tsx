@@ -3,7 +3,7 @@ import HomeMobile from "./HomeMobile";
 import HomeDesktop from "./HomeDesktop";
 
 export default function HomePage() {
-  const [isMobile] = useMediaQuery(["(max-width: 768px)"], {
+  const [isMobile] = useMediaQuery(["(max-width: 1268px)"], {
     ssr: false,
     fallback: [false],
   });

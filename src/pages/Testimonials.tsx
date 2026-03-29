@@ -45,7 +45,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6vw"
+        mb="4vw"
       >
         <TypewriterText
           text={testimonies["invader-1"]}
@@ -73,7 +73,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6vw"
+        mb="4vw"
       >
         <TypewriterText
           text={testimonies["invader-2"]}
@@ -101,7 +101,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6vw"
+        mb="4vw"
       >
         <TypewriterText
           fontSize="1.06vw"
@@ -129,7 +129,7 @@ function Testimonials() {
         alignItems="center"
         justifyContent="space-between"
         width="24%"
-        mb="6vw"
+        mb="4vw"
       >
         <TypewriterText
           text={testimonies["invader-4"]}
@@ -156,7 +156,7 @@ function Testimonials() {
         speed={30}
         style={{
           position: "absolute",
-          top: "45vh",
+          top: "47vh",
           mx: "auto",
           fontSize: "2.3vw",
         }}

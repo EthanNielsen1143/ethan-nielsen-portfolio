@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import { useEffect } from "react";
 
 const Root = () => {
-  const [isMobile] = useMediaQuery(["(max-width: 768px)"], {
+  const [isMobile] = useMediaQuery(["(max-width: 1268px)"], {
     ssr: false,
     fallback: [false],
   });

@@ -1,7 +1,6 @@
-import { Heading, Flex, Button } from "@chakra-ui/react";
-import TypewriterText from "@/components/TypeWriterText";
+import { Box, Text, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import TypewriterText from "@/components/TypeWriterText";
 
 function HomeMobile() {
   const [showButton, setShowButton] = useState(false);
@@ -10,9 +9,8 @@ function HomeMobile() {
     const timer = setTimeout(() => {
       setShowButton(true);
     }, 5300);
-
     return () => clearTimeout(timer);
-  });
+  }, []);
 
   function downloadResume(): void {
     const link = document.createElement("a");
@@ -22,52 +20,59 @@ function HomeMobile() {
     link.click();
     document.body.removeChild(link);
   }
+
   return (
-    <Flex
-      height="100vh"
+    <Box
       width="100vw"
-      flexDirection="column"
+      height="100vh"
+      display="flex"
       justifyContent="center"
       alignItems="center"
-      textAlign="center"
-      gap="6vh"
-      padding="6vw"
+      backgroundColor="black"
     >
-      <Heading fontSize="6vw">Ah! I see you are on your mobile device!</Heading>
-      <TypewriterText
-        fontSize="3.8vw"
-        text="This resume site is probably the coolest site you will ever see. However, this adventure is meant for desktops. 
-      Here is the download link in-case you want to checkout my resume now."
-      />
-      <AnimatePresence>
-        {showButton && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Button
-              padding="7vw"
-              fontSize="4vw"
-              borderRadius="10px"
-              width="50vw"
-              colorPalette="purple"
-              variant="outline"
-              onClick={downloadResume}
-            >
-              Download Resume
-            </Button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Game Boy container with fixed aspect ratio */}
+      <Box
+        width="90vw"
+        maxWidth="500px"
+        aspectRatio={2 / 3}
+        position="relative"
+        backgroundImage="url('/images/gameboy.png')"
+        backgroundSize="contain"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="center"
+      >
+        {/* Green screen box positioned relative to image */}
+        <Box
+          position="absolute"
+          top="28%" // these % are based on the Game Boy image
+          left="28%"
+          width="44%"
+          height="33%"
+          background="rgba(0, 0, 0, 0.1)"
+          padding="2%"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+        >
+          <Heading fontSize="calc(0.8em + 0.5vw)">
+            Ah! I see you are on your mobile device!
+          </Heading>
 
-      <TypewriterText
-        fontSize="3.8vw"
-        delay={6}
-        text="I would suggest checking this same site on your machine... unless you don't know how to fly a spaceship. Then maybe don't."
-      />
-    </Flex>
+          <TypewriterText
+            fontSize="calc(0.7em + 0.3vw)"
+            text="This resume site is probably the coolest site you will ever see. However, this adventure is meant for desktops. In case you want to check out my resume now, hit the `A` button to download it."
+          />
+
+          <TypewriterText
+            fontSize="calc(0.7em + 0.3vw)"
+            delay={6}
+            text="I would suggest checking this same site on your machine... unless you don't know how to fly a spaceship. Then maybe don't."
+          />
+        </Box>
+      </Box>
+    </Box>
   );
 }
 

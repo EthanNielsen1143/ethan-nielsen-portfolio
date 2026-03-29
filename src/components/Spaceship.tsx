@@ -22,7 +22,7 @@ const Spaceship = () => {
       } else if (location.pathname === "/experience") {
         setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.15 });
       } else if (location.pathname === "/testimonials") {
-        setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.6 });
+        setPosition({ x: screenWidth * 0.5, y: screenHeight * 0.55 });
       }
     };
 
