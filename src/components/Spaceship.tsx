@@ -10,7 +10,7 @@ const Spaceship = () => {
     if (path === "/experience")
       return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.15 };
     if (path === "/testimonials")
-      return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.55 };
+      return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.7 };
     return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.2 };
   };
 
