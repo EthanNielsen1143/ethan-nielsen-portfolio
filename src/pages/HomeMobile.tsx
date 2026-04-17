@@ -1,4 +1,4 @@
-import { Box, Text, Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import TypewriterText from "@/components/TypeWriterText";
 
@@ -70,6 +70,14 @@ function HomeMobile() {
             delay={6}
             text="I would suggest checking this same site on your machine... unless you don't know how to fly a spaceship. Then maybe don't."
           />
+          {showButton && (
+            <button
+              onClick={downloadResume}
+              style={{ marginTop: "8px", fontSize: "calc(0.7em + 0.3vw)" }}
+            >
+              Download Resume
+            </button>
+          )}
         </Box>
       </Box>
     </Box>
