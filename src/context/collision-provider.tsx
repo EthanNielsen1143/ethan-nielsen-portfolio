@@ -27,27 +27,27 @@ const CollisionProvider = ({ children }: { children: ReactNode }) => {
       if (!elementObject.element) return;
 
       const isAlreadyRegistered = collidableElements.current.some(
-        (e) => e.element === elementObject.element
+        (e) => e.element === elementObject.element,
       );
 
       if (!isAlreadyRegistered) {
         collidableElements.current.push(elementObject);
       }
     },
-    []
+    [],
   );
 
-  const activeCollisions = new Set<HTMLDivElement>();
+  const activeCollisions = useRef<Set<HTMLDivElement>>(new Set());
 
   const spaceShipMovedCallback = () => {
     const spaceShip = collidableElements.current.find(
-      (element) => element?.element?.id === "spaceShip"
+      (element) => element?.element?.id === "spaceShip",
     );
 
     if (!spaceShip?.element) return;
 
     const collidables = collidableElements.current.filter(
-      (element) => element.element?.id !== "spaceShip"
+      (element) => element.element?.id !== "spaceShip",
     );
 
     for (let i = 0; i < collidables.length; i++) {
@@ -65,16 +65,15 @@ const CollisionProvider = ({ children }: { children: ReactNode }) => {
 
       if (collidableElement) {
         if (isColliding) {
-          if (!activeCollisions.has(collidableElement)) {
+          if (!activeCollisions.current.has(collidableElement)) {
             console.log("Collision STARTED with:", collidableElement);
-            activeCollisions.add(collidableElement);
+            activeCollisions.current.add(collidableElement);
             collidables[i].collisionCallback();
           }
         } else {
-          if (activeCollisions.has(collidableElement)) {
+          if (activeCollisions.current.has(collidableElement)) {
             console.log("Collision ENDED with:", collidableElement);
-            activeCollisions.delete(collidableElement);
-
+            activeCollisions.current.delete(collidableElement);
             collidables[i].collisionEndCallback?.();
           }
         }
