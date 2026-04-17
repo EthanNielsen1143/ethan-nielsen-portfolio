@@ -5,7 +5,16 @@ import { CollisionContext } from "@/context/collision-provider.tsx";
 
 const Spaceship = () => {
   const location = useLocation();
-  const [position, setPosition] = useState({ x: 955, y: 180 });
+  const getInitialPosition = () => {
+    const path = window.location.pathname;
+    if (path === "/experience")
+      return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.15 };
+    if (path === "/testimonials")
+      return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.55 };
+    return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.2 };
+  };
+
+  const [position, setPosition] = useState(getInitialPosition);
   const keys = useRef<{ [key: string]: boolean }>({});
   const [rotation, setRotation] = useState(0);
   const spaceshipRef = useRef<HTMLDivElement | null>(null);
