@@ -20,7 +20,7 @@ const Experience = () => {
 
   const [_, setIsTransitioning] = useState(false);
 
-  const defaultTitle = `This is where I store all my career loot— internships, education, projects
+  const defaultTitle = `This is where I store all my career loot - internships, business, education, projects
     and things that made me better. Fly around and check it out. 
     Just try not to break anything...`;
 
@@ -57,9 +57,9 @@ const Experience = () => {
         },
         "satellite-4": {
           id: "satellite-4",
-          title: "AI Trainer at Cartwheel Inc.",
-          date: "June 2024 to Jan 2025",
-          body: `At Cartwheel AI, I was responsible for labeling and annotating large datasets of motion capture and animation data to support the training of AI models. My work focused on ensuring data accuracy and consistency, which contributed to improving the performance of AI-generated 3D animations. I collaborated with the AI development team to meet project requirements and maintained high-quality standards throughout the data preparation process.`,
+          title: "Lucent Home Services | Founder & Owner",
+          date: "April 2025 to Current",
+          body: `Founded and scaled a home services company to multiple six-figure annual revenue, overseeing all aspects of business operations including client acquisition, workforce management, and financial planning. Built and managed a team of field technicians, establishing efficient labor infrastructure and operational systems that enabled consistent year-over-year growth. Developed and maintained a diversified recurring client base, driving predictable revenue and long-term customer retention. Demonstrated entrepreneurial ownership across sales, marketing, hiring, and strategic planning, growing the business from the ground up while maintaining profitability and service quality.`,
         },
       };
 
@@ -98,7 +98,7 @@ const Experience = () => {
           mb="2vw"
         >
           <TypewriterText
-            text="INTERNSHIPS"
+            text="DEV INTERNSHIPS"
             fontWeight="bold"
             fontSize="1.7vw"
             speed={100}
