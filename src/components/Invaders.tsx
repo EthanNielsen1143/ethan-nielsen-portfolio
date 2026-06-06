@@ -5,10 +5,11 @@ import { CollisionContext } from "@/context/collision-provider.tsx";
 
 interface InvadersProps extends BoxProps {
   id: string;
+  testimony?: string;
   setTestimony?: (testimony: string) => void;
 }
 
-const Invader = ({ id, setTestimony, ...props }: InvadersProps) => {
+const Invader = ({ id, testimony, setTestimony, ...props }: InvadersProps) => {
   const { collidableElementsCallback } = useContext(CollisionContext);
   const invaderRef = useRef<HTMLDivElement | null>(null);
 
@@ -22,10 +23,7 @@ const Invader = ({ id, setTestimony, ...props }: InvadersProps) => {
         setIsCollided(true); // Stop floating on collision
 
         if (setTestimony) {
-          setTestimony(`"Ethan is one of the most insightful and innovative problem solvers I’ve worked with. 
-            His ability to break down complex challenges and find efficient solutions is unmatched. 
-            Whether it's coding, consulting, or just making the team laugh, Ethan always delivers. 
-            If you're looking for someone who blends technical expertise with creativity and leadership, look no further!"`);
+          setTestimony(testimony ?? "");
         }
       },
     });

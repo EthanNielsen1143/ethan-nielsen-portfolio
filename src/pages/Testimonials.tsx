@@ -14,7 +14,7 @@ function Testimonials() {
   });
 
   const [testTitle, setTestimonialTitle] = useState(
-    "Hear what others have to say about Ethan"
+    "Hear what others have to say about Ethan",
   );
 
   const handleTestimonyChange = (id: string, newTestimony: string) => {
@@ -23,7 +23,7 @@ function Testimonials() {
       [id]: newTestimony,
     }));
     setTestimonialTitle(
-      newTestimony ? "" : "Hear what others have to say about Ethan"
+      newTestimony ? "" : "Hear what others have to say about Ethan",
     );
   };
 
@@ -56,13 +56,14 @@ function Testimonials() {
         <Flex position="relative" flexDir="column" alignItems="center">
           <Invader
             id="invader-1"
+            testimony="I've managed a lot of developers over the years, and Ethan stands out. He takes ownership, communicates clearly, and never treats a problem as someone else's responsibility. What impressed me most was how quickly he could context-switch between deep technical work and high-level strategy without missing a beat."
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-1", text)}
           />
           <Text fontSize="1.5vw" fontWeight="bold">
-            Full Name Here
+            Landon Probst
           </Text>
-          <Text>Relationship</Text>
+          <Text>Internship Supervisor</Text>
         </Flex>
       </Flex>
 
@@ -85,12 +86,16 @@ function Testimonials() {
           <Invader
             id="invader-2"
             position="relative"
+            testimony="Ethan is one of the most insightful and innovative problem solvers I’ve worked with. 
+            His ability to break down complex challenges and find efficient solutions is unmatched. 
+            Whether it's coding, consulting, or just making the team laugh, Ethan always delivers. 
+            If you're looking for someone who blends technical expertise with creativity and leadership, look no further!"
             setTestimony={(text) => handleTestimonyChange("invader-2", text)}
           />
           <Text fontSize="1.5vw" fontWeight="bold">
-            Full Name Here
+            Caleb Norris
           </Text>
-          <Text>Relationship</Text>
+          <Text>Internship Supervisor</Text>
         </Flex>
       </Flex>
 
@@ -112,13 +117,14 @@ function Testimonials() {
         <Flex position="relative" flexDir="column" alignItems="center">
           <Invader
             id="invader-3"
+            testimony="Ethan brought an energy to our team that's hard to put into words. He doesn't just write good code, he asks the right questions before a single line is written. His attention to detail and genuine curiosity about the user experience made every project we collaborated on better than it would have been without him"
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-3", text)}
           />
           <Text fontSize="1.5vw" fontWeight="bold">
-            Full Name Here
+            Josh Hutchings
           </Text>
-          <Text>Relationship</Text>
+          <Text>Internship Supervisor</Text>
         </Flex>
       </Flex>
 
@@ -140,13 +146,14 @@ function Testimonials() {
         <Flex position="relative" flexDir="column" alignItems="center">
           <Invader
             id="invader-4"
+            testimony="Ethan has one of the sharpest business minds I've encountered in my years of consulting. He doesn't just understand the technical side, he sees the full picture. From market positioning and competitive analysis to operational efficiency and stakeholder alignment, he connects dots that most people don't even know exist. Every strategy conversation with Ethan elevated the outcome. He's the kind of person who makes an entire organization smarter just by being in the room."
             position="relative"
             setTestimony={(text) => handleTestimonyChange("invader-4", text)}
           />
           <Text fontSize="1.5vw" fontWeight="bold">
-            Full Name Here
+            Gavin Johnson
           </Text>
-          <Text>Relationship</Text>
+          <Text>Business consultant</Text>
         </Flex>
       </Flex>
 
